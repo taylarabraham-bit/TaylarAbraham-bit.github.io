@@ -4,6 +4,22 @@
     box-sizing: border-box;
 }
 
+.background {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('/Projects/KitchenSite/assests/imgaes/sitestuff/animations-gif-banners/animated/banners/cards-knife-cut.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;    
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
 
 #top_page {
     text-align: center;
@@ -29,7 +45,7 @@
 .index-link {
     color: neonpurple;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: .5rem 2rem;
 }
 .index-link:hover {
     color: neonblue;
@@ -46,13 +62,16 @@
 }
 
 .dropdwnlst {
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     top: 100%;
     left: 0;
     opacity: 0;
     visibility: hidden;
     translate: 0 -8px;
-    transition: opacity 200ms, translate 200ms, visibility 200ms;
+    transition: opacity 200ms, translate 200ms, visibility 4s;
     border: 1px solid neonpurple;
     background: neongreen;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -63,6 +82,7 @@
     visibility: visible;
     translate: 0 0;
 }
-.everyday {
+
+.Getting_Here {
     text-align: center;
 }
