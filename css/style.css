@@ -1,0 +1,62 @@
+.homenav {
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    border: 2px solid neonpurple;
+    background: neongreen;
+    padding: 0.5rem 1rem;
+    max-width: 50rem;
+    margin-inline: auto;
+}
+}
+.dropdwnbtn {
+    background-color: neonblue;
+    color: neonpurple;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.homelist {
+    display: none;
+    position: absolute;
+    background-color: neonblue;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+} 
+.homelist:hover {
+     color: neonblue;
+    text-decoration: underline;
+}
+.homelist:focus-visible {
+    outline: 2px solid neonblue;
+}  
+.dropdwnlst {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    translate: 0 -8px;
+    transition: opacity 200ms, translate 200ms, visibility 4s;
+    border: 1px solid neonpurple;
+    background: neongreen;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.dropdown:hover .dropdwnlst,
+.dropdown:focus-within .dropdwnlst {
+    opacity: 1;
+    visibility: visible;
+    translate: 0 0;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
