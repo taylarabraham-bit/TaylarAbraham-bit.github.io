@@ -44,7 +44,6 @@
         <nav class="site-nav" aria-label="Main">
           <a href="#work">Work</a>
           <a href="#prep">Prep list</a>
-          <a href="#coursework">Coursework</a>
           <a href="#about">About</a>
           <a href="Projects/KitchenSite/">Kitchen</a>
         </nav>
@@ -78,11 +77,11 @@
             <ul class="rail-list">
               <li><a href="#codequest"><span class="dot dot-live"></span>CodeQuest<span class="rail-state">Shipped</span></a></li>
               <li><a href="#money-manager"><span class="dot dot-live"></span>Money Manager<span class="rail-state">Live</span></a></li>
-              <li><a href="#survivor-forge"><span class="dot dot-fire"></span>Survivor Forge<span class="rail-state">Working</span></a></li>
-              <li><a href="#deadlight"><span class="dot dot-fire"></span>Deadlight City<span class="rail-state">Playable</span></a></li>
               <li><a href="#multi-apocalypse"><span class="dot dot-fire"></span>Multi-Apocalypse<span class="rail-state">In production</span></a></li>
               <li><a href="#irl-rpg"><span class="dot dot-fire"></span>IRL RPG family<span class="rail-state">Private beta</span></a></li>
               <li><a href="#kitchen"><span class="dot dot-fire"></span>Kitchen site<span class="rail-state">In progress</span></a></li>
+              <li><a href="#deadlight"><span class="dot dot-test"></span>Deadlight City<span class="rail-state">Prototype</span></a></li>
+              <li><a href="#survivor-forge"><span class="dot dot-test"></span>Survivor Forge<span class="rail-state">Prototype</span></a></li>
               <li><a href="#prep"><span class="dot dot-prep"></span>Jot + 5 more<span class="rail-state">Prep</span></a></li>
             </ul>
           </aside>
@@ -177,66 +176,6 @@
             <h2 id="fire-title">Running and playable, still cooking.</h2>
           </header>
 
-          <article class="project" id="survivor-forge">
-            <div class="shot">
-              <img
-                src="assets/img/forge-editor.webp"
-                width="1440"
-                height="770"
-                loading="lazy"
-                alt="The Survivor Forge editor: scene hierarchy, a 3D scene view with a live game view, an inspector and an asset browser"
-              />
-            </div>
-            <div class="project-body">
-              <p class="ticket"><span>Game engine</span><span>Windows</span><span class="state state-fire">Working</span></p>
-              <h3>Survivor Forge</h3>
-              <p class="pitch">
-                A 3D game engine and editor written from scratch in C++20, so my survival games have
-                a home I understand all the way down. One editor opens any game project, the way
-                Unity and Unreal do.
-              </p>
-              <ul class="notes">
-                <li>Vulkan renderer with physically based materials, HDR, cascaded and point-light shadows, image-based lighting and screen-space reflections.</li>
-                <li>A deterministic 60 Hz simulation on an entity-component system, with seeded randomness and versioned save snapshots.</li>
-                <li>Each game compiles to its own module behind a stable interface, so you can press Play in the editor, pause, and edit the live world.</li>
-                <li>Jolt physics for characters, vehicles, ragdolls and cloth, Lua scripting, and LAN co-op with client prediction.</li>
-                <li>Still rough: sample scenes use placeholder art and the editor's workflow isn't polished yet.</li>
-              </ul>
-              <p class="stack">C++20 · Vulkan · SDL3 · EnTT · Jolt Physics · Dear ImGui · Lua · CMake · vcpkg</p>
-              <div class="links"><span class="private">Source is private</span></div>
-            </div>
-          </article>
-
-          <article class="project project-flip" id="deadlight">
-            <div class="shot">
-              <img
-                src="assets/img/deadlight-horde.webp"
-                width="1280"
-                height="720"
-                loading="lazy"
-                alt="Deadlight City at night in a storm: the player facing a horde, with a horde-night wave counter on the HUD"
-              />
-            </div>
-            <div class="project-body">
-              <p class="ticket"><span>Survival RPG</span><span>Browser · Windows</span><span class="state state-fire">Playable</span></p>
-              <h3>Deadlight City</h3>
-              <p class="pitch">
-                An offline open-world survival RPG set in one 4 km by 4 km city, with zombies,
-                aliens and demons. It runs in a browser tab or as a portable Windows app, with no
-                game engine underneath: plain JavaScript and three.js.
-              </p>
-              <ul class="notes">
-                <li>The city is generated from a seed and streamed in chunks, so a save only stores what you changed.</li>
-                <li>Characters, animation, sound effects and music are all generated at runtime instead of shipped as files.</li>
-                <li>A hand-built rendering stack: procedural sky, bloom, ambient occlusion, depth of field and four quality presets.</li>
-                <li>Automated gates check that 61 modules have no circular imports, that old saves still load, and that the packaged app boots.</li>
-                <li>Still rough: frame pacing and visual polish are the open work.</li>
-              </ul>
-              <p class="stack">JavaScript (ES modules) · three.js · Electron · Node · Blender Python</p>
-              <div class="links"><span class="private">Source is private</span></div>
-            </div>
-          </article>
-
           <article class="project" id="multi-apocalypse">
             <div class="shot shot-type" aria-hidden="true">
               <ol class="shuffle">
@@ -327,8 +266,81 @@
         </div>
       </section>
 
+      <!-- ───────────── Test kitchen ───────────── -->
+      <section class="tier" id="test-kitchen" aria-labelledby="test-title">
+        <div class="wrap">
+          <header class="tier-head">
+            <p class="eyebrow"><span class="dot dot-test"></span>Test kitchen</p>
+            <h2 id="test-title">Prototypes that led to Multi-Apocalypse.</h2>
+            <p class="tier-sub">Stopped, and kept on the menu board because the big game grew out of them.</p>
+          </header>
+
+          <article class="project" id="deadlight">
+            <div class="shot">
+              <img
+                src="assets/img/deadlight-horde.webp"
+                width="1280"
+                height="720"
+                loading="lazy"
+                alt="Deadlight City at night in a storm: the player facing a horde, with a horde-night wave counter on the HUD"
+              />
+            </div>
+            <div class="project-body">
+              <p class="ticket"><span>Survival RPG</span><span>Browser · Windows</span><span class="state state-test">Prototype</span></p>
+              <h3>Deadlight City</h3>
+              <p class="pitch">
+                An offline open-world survival RPG set in one 4 km by 4 km city, with zombies,
+                aliens and demons. It runs in a browser tab or as a portable Windows app, with no
+                game engine underneath: plain JavaScript and three.js.
+              </p>
+              <p class="lineage-note">My first shot at the game that became <a href="#multi-apocalypse">Multi-Apocalypse</a>.</p>
+              <ul class="notes">
+                <li>The city is generated from a seed and streamed in chunks, so a save only stores what you changed.</li>
+                <li>Characters, animation, sound effects and music are all generated at runtime instead of shipped as files.</li>
+                <li>A hand-built rendering stack: procedural sky, bloom, ambient occlusion, depth of field and four quality presets.</li>
+                <li>Automated gates check that 61 modules have no circular imports, that old saves still load, and that the packaged app boots.</li>
+                <li>Stopped as a prototype: frame pacing and visual polish were never finished.</li>
+              </ul>
+              <p class="stack">JavaScript (ES modules) · three.js · Electron · Node · Blender Python</p>
+              <div class="links"><span class="private">Source is private</span></div>
+            </div>
+          </article>
+
+          <article class="project project-flip" id="survivor-forge">
+            <div class="shot">
+              <img
+                src="assets/img/forge-editor.webp"
+                width="1440"
+                height="770"
+                loading="lazy"
+                alt="The Survivor Forge editor: scene hierarchy, a 3D scene view with a live game view, an inspector and an asset browser"
+              />
+            </div>
+            <div class="project-body">
+              <p class="ticket"><span>Game engine</span><span>Windows</span><span class="state state-test">Prototype</span></p>
+              <h3>Survivor Forge</h3>
+              <p class="pitch">
+                A 3D game engine and editor written from scratch in C++20, to understand a survival
+                game all the way down. One editor opens any game project, the way Unity and Unreal
+                do.
+              </p>
+              <p class="lineage-note">My second shot, engine first, before <a href="#multi-apocalypse">Multi-Apocalypse</a> moved to Unity.</p>
+              <ul class="notes">
+                <li>Vulkan renderer with physically based materials, HDR, cascaded and point-light shadows, image-based lighting and screen-space reflections.</li>
+                <li>A deterministic 60 Hz simulation on an entity-component system, with seeded randomness and versioned save snapshots.</li>
+                <li>Each game compiles to its own module behind a stable interface, so you can press Play in the editor, pause, and edit the live world.</li>
+                <li>Jolt physics for characters, vehicles, ragdolls and cloth, Lua scripting, and LAN co-op with client prediction.</li>
+                <li>Stopped as a prototype: sample scenes use placeholder art and the editor's workflow was never polished.</li>
+              </ul>
+              <p class="stack">C++20 · Vulkan · SDL3 · EnTT · Jolt Physics · Dear ImGui · Lua · CMake · vcpkg</p>
+              <div class="links"><span class="private">Source is private</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <!-- ───────────── Prep list ───────────── -->
-      <section class="tier" id="prep" aria-labelledby="prep-title">
+      <section class="tier tier-alt" id="prep" aria-labelledby="prep-title">
         <div class="wrap">
           <header class="tier-head">
             <p class="eyebrow"><span class="dot dot-prep"></span>Prep list</p>
@@ -349,39 +361,6 @@
             <li class="prep"><h3>Task manager</h3><p class="prep-state">Planned</p></li>
             <li class="prep"><h3>Neural net</h3><p class="prep-state">Planned</p></li>
             <li class="prep"><h3>LLM</h3><p class="prep-state">Planned</p></li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- ───────────── Coursework ───────────── -->
-      <section class="tier tier-alt" id="coursework" aria-labelledby="course-title">
-        <div class="wrap">
-          <header class="tier-head">
-            <p class="eyebrow">Coursework</p>
-            <h2 id="course-title">C# and .NET, assignment by assignment.</h2>
-            <p class="tier-sub">Class exercises, kept public. Smaller than the projects above, and the fundamentals under them.</p>
-          </header>
-          <ul class="course-list">
-            <li>
-              <a href="https://github.com/taylarabraham-bit/T10B---Deployment-Phase-Using-Docker" rel="noopener">Deployment with Docker</a>
-              <span>A multi-stage Dockerfile and Compose file that build and serve a Blazor app.</span>
-            </li>
-            <li>
-              <a href="https://github.com/taylarabraham-bit/T9A---APIs-101" rel="noopener">APIs 101</a>
-              <span>HTTP verbs, endpoints and JSON, calling a chat model from ASP.NET.</span>
-            </li>
-            <li>
-              <a href="https://github.com/taylarabraham-bit/T9C---Data-in-the-Real-World--Working-with-Files" rel="noopener">Working with files</a>
-              <span>Cleaning a messy CSV, converting it to JSON and validating it against a schema.</span>
-            </li>
-            <li>
-              <a href="https://github.com/taylarabraham-bit/T7A---Functions--Errors---Debugging" rel="noopener">Functions, errors and debugging</a>
-              <span>Finding a bug, writing down how, and fixing it.</span>
-            </li>
-            <li>
-              <a href="https://github.com/taylarabraham-bit/T6A---Programming-I--Control-Flow" rel="noopener">Control flow</a>
-              <span>Loops and conditionals: even numbers, FizzBuzz and a multiplication table.</span>
-            </li>
           </ul>
         </div>
       </section>

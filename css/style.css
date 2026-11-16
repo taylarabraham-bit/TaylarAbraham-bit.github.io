@@ -1,5 +1,5 @@
-/* Layout: a kitchen pass. A hero with an order rail, then three tiers of work
-   sorted by how done each build is (on the pass / on the fire / prep list). */
+/* Layout: a kitchen pass. A hero with the rail, then four tiers of work
+   (on the pass / on the fire / test kitchen / prep list). Terms: GLOSSARY.md. */
 
 :root {
   color-scheme: dark;
@@ -15,6 +15,7 @@
   --live: #6fe0b5;
   --fire: #ff8a4c;
   --prep: #9d8cff;
+  --test: #6cb8ff;
 
   /* type */
   --display: 'Bricolage Grotesque', 'Arial Narrow', system-ui, sans-serif;
@@ -39,6 +40,7 @@
     --live: #0b7a55;
     --fire: #b84a10;
     --prep: #5a45d6;
+    --test: #1f65b8;
   }
 }
 :root[data-theme='light'] {
@@ -54,6 +56,7 @@
   --live: #0b7a55;
   --fire: #b84a10;
   --prep: #5a45d6;
+  --test: #1f65b8;
 }
 
 *,
@@ -238,6 +241,9 @@ ol {
 }
 .dot-prep {
   background: var(--prep);
+}
+.dot-test {
+  background: var(--test);
 }
 
 .btn {
@@ -495,6 +501,9 @@ ol {
 .state-fire {
   color: var(--fire);
 }
+.state-test {
+  color: var(--test);
+}
 
 .project h3 {
   font-size: clamp(1.75rem, 3.2vw, 2.5rem);
@@ -511,6 +520,17 @@ ol {
 .pitch {
   font-size: 1.125rem;
   max-width: 34rem;
+}
+
+/* Where a test-kitchen prototype sits in the lineage */
+.lineage-note {
+  font: 400 0.875rem var(--mono);
+  color: var(--muted);
+}
+.lineage-note a {
+  color: var(--fg);
+  text-decoration-color: var(--test);
+  text-underline-offset: 0.2em;
 }
 
 .figures {
@@ -612,27 +632,6 @@ ol {
   color: var(--prep);
 }
 
-/* ── Coursework ─────────────────────────────────────── */
-
-.course-list {
-  border-top: 1px solid var(--line);
-}
-.course-list li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
-  gap: 0.25rem 2rem;
-  padding-block: 1rem;
-  border-bottom: 1px solid var(--line);
-}
-.course-list a {
-  font-weight: 600;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 0.2em;
-}
-.course-list span {
-  color: var(--muted);
-}
-
 /* ── About ──────────────────────────────────────────── */
 
 .about-grid {
@@ -720,9 +719,6 @@ ol {
   .shot-type {
     min-height: 0;
   }
-  .course-list li {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }
 
 @media (max-width: 40rem) {
@@ -736,10 +732,6 @@ ol {
   }
   .site-nav a {
     white-space: nowrap;
-  }
-  /* Coursework is one scroll past the prep list; drop its link so Kitchen fits. */
-  .site-nav a[href='#coursework'] {
-    display: none;
   }
 }
 
