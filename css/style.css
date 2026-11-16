@@ -17,6 +17,12 @@
   --prep: #9d8cff;
   --test: #6cb8ff;
 
+  /* materials: brushed steel and thermal paper */
+  --steel-hi: #474253;
+  --steel-lo: #292533;
+  --paper: #f4eedd;
+  --plate-lunch: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 32' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='1' y='1' width='46' height='30' rx='5'/%3E%3Cpath d='M27 1v30M27 16h20'/%3E%3Ccircle cx='33' cy='8.5' r='3.5'/%3E%3Ccircle cx='41' cy='8.5' r='3.5'/%3E%3Cpath d='M32 22.5q2-2.5 4 0t4 0 3 0M33 26.5h8'/%3E%3Cpath d='M7 24 13 8M13 24 19 8M19 24 22 16'/%3E%3C/svg%3E");
+
   /* type */
   --display: 'Bricolage Grotesque', 'Arial Narrow', system-ui, sans-serif;
   --body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -41,6 +47,8 @@
     --fire: #b84a10;
     --prep: #5a45d6;
     --test: #1f65b8;
+    --steel-hi: #f3f1f7;
+    --steel-lo: #cbc6d6;
   }
 }
 :root[data-theme='light'] {
@@ -57,6 +65,8 @@
   --fire: #b84a10;
   --prep: #5a45d6;
   --test: #1f65b8;
+  --steel-hi: #f3f1f7;
+  --steel-lo: #cbc6d6;
 }
 
 *,
@@ -144,9 +154,38 @@ ol {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgb(0 0 0 / 0.45);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.14),
+    0 2px 10px rgb(0 0 0 / 0.28);
+}
+
+/* Brushed steel: fine horizontal grain, one soft sheen, over a vertical falloff */
+.steel,
+.site-header {
+  background:
+    repeating-linear-gradient(0deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 3px),
+    linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.07) 50%, transparent 65%),
+    linear-gradient(180deg, var(--steel-hi), var(--steel-lo));
+}
+
+/* Thermal paper: always cream with dark ink, so it carries the light palette in both themes */
+.paper {
+  --fg: #2a2433;
+  --muted: #5d5470;
+  --line: #cfc6ae;
+  --live: #0b7a55;
+  --fire: #b84a10;
+  --prep: #5a45d6;
+  --test: #1f65b8;
+  --tooth: 0.5rem;
+  background: var(--paper);
+  color: var(--fg);
+  /* torn bottom edge: a row of teeth cut by the mask */
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% /
+    calc(2 * var(--tooth)) 100%;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% /
+    calc(2 * var(--tooth)) 100%;
 }
 
 .header-row {
@@ -183,12 +222,13 @@ ol {
 }
 
 .site-nav a {
-  color: var(--muted);
   text-decoration: none;
   padding-block: 0.5rem;
 }
 .site-nav a:hover {
-  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.3em;
 }
 
 .theme-toggle {
@@ -197,7 +237,7 @@ ol {
   width: 2.25rem;
   height: 2.25rem;
   background: none;
-  border: 1px solid var(--line);
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
   border-radius: 50%;
   color: var(--fg);
   cursor: pointer;
@@ -272,7 +312,6 @@ ol {
 
 .hero {
   padding-block: clamp(3rem, 8vw, 6rem);
-  border-bottom: 1px solid var(--line);
 }
 
 .hero-grid {
@@ -304,34 +343,54 @@ ol {
   gap: 0.75rem;
 }
 
-/* The rail: order tickets hanging in a row */
+/* The rail: a steel bar with one paper ticket per project hanging under it */
 .rail {
-  border: 1px solid var(--line);
-  border-top: 4px solid var(--accent);
-  background: var(--surface);
-  border-radius: var(--radius);
   font-family: var(--mono);
   font-size: 0.875rem;
 }
 
 .rail-title {
-  padding: 0.875rem 1.125rem 0.625rem;
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem 1.125rem;
+  border-radius: 3px;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.14),
+    0 3px 6px rgb(0 0 0 / 0.35);
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+}
+
+.rail-list {
+  display: grid;
+  gap: 0.125rem;
+  padding-inline: 0.75rem;
+  margin-top: -0.125rem;
+}
+
+/* the shadow lives on the li because the ticket's mask would clip its own */
+.rail-list li {
+  filter: drop-shadow(0 2px 2px rgb(0 0 0 / 0.3));
+  transition: transform 150ms;
+}
+.rail-list li:nth-child(odd) {
+  transform: rotate(-0.5deg);
+}
+.rail-list li:nth-child(even) {
+  transform: rotate(0.4deg);
+}
+.rail-list li:hover,
+.rail-list li:focus-within {
+  transform: translateX(0.375rem);
 }
 
 .rail-list a {
   display: flex;
   align-items: center;
   gap: 0.625rem;
-  padding: 0.625rem 1.125rem;
-  border-top: 1px dashed var(--line);
+  padding: 0.625rem 1rem calc(0.625rem + var(--tooth));
   text-decoration: none;
-}
-.rail-list a:hover {
-  background: var(--bg-alt);
 }
 
 .rail-state {
@@ -343,10 +402,43 @@ ol {
 /* ── Tiers ──────────────────────────────────────────── */
 
 .tier {
+  position: relative;
   padding-block: clamp(3.5rem, 8vw, 6rem);
+  border-top: 1px solid var(--line);
 }
 .tier-alt {
   background: var(--bg-alt);
+}
+
+/* Plate-lunch divider between tiers: a takeout box with two scoops rice, mac salad and a main */
+.tier::before,
+.tier::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% -50%;
+}
+.tier::before {
+  width: 4.75rem;
+  height: 2.5rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.tier::after {
+  width: 2.625rem;
+  height: 1.75rem;
+  background: var(--accent);
+  -webkit-mask: var(--plate-lunch) center / contain no-repeat;
+  mask: var(--plate-lunch) center / contain no-repeat;
+}
+
+/* Heat lamps over the pass: two warm pools of light from above */
+.tier-pass {
+  background:
+    radial-gradient(34rem 24rem at 22% -7rem, color-mix(in srgb, var(--accent) 28%, transparent), transparent 70%),
+    radial-gradient(34rem 24rem at 78% -7rem, color-mix(in srgb, var(--accent) 28%, transparent), transparent 70%);
 }
 
 .tier-head {
@@ -396,6 +488,13 @@ ol {
 .shot img,
 .shot video {
   width: 100%;
+}
+
+/* A stand-in printed on paper reads as a receipt: no frame, extra room for the torn edge */
+.shot-type.paper {
+  border: 0;
+  border-radius: 0;
+  padding-bottom: calc(clamp(1.25rem, 3vw, 2rem) + var(--tooth));
 }
 
 /* Typographic stand-ins where there is no screenshot to show yet */
@@ -484,7 +583,7 @@ ol {
   min-width: 0;
 }
 
-.ticket {
+.meta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.375rem 1rem;
@@ -739,7 +838,8 @@ ol {
   html {
     scroll-behavior: auto;
   }
-  .btn {
+  .btn,
+  .rail-list li {
     transition: none;
   }
 }
