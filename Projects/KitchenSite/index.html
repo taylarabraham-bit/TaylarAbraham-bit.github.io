@@ -1,58 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plate Lunch to Plated Courses — Taylar Abraham</title>
+    <meta name="description" content="Dishes Taylar Abraham has cooked, and the story from Hawaiʻi plate lunch to plated courses." />
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
 
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="/projects/KitchenSite/css/main.css">
-            <title>Plate Lunch to Plated Courses</title>
-        </head>
+  <body>
+    <header class="k-header">
+      <div class="k-wrap k-header-row">
+        <a class="k-back" href="../../">← Taylar Abraham</a>
+        <nav class="k-nav" aria-label="Main">
+          <a href="#story">Story</a>
+          <a href="#dishes">Dishes</a>
+          <a href="#next">What's next</a>
+        </nav>
+      </div>
+    </header>
 
-    <body class="background">
-        <header><h1 id="top_page">Plate Lunch to Plated Courses</h1></header>
+    <main>
+      <section class="k-hero">
+        <video class="k-hero-video lazy-video" muted loop playsinline preload="none" width="1920" height="800"
+          poster="../../assets/img/kitchen-banner.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/banners/banner-slideshow.mp4"
+          aria-label="A slideshow of dishes: pizza, beef ramen, noodles and a pork belly bowl"></video>
+        <div class="k-wrap k-hero-copy">
+          <p class="k-eyebrow">The kitchen</p>
+          <h1 id="top_page">Plate Lunch to Plated Courses</h1>
+        </div>
+      </section>
 
-    <nav class="indexnav" aria-label="Main">
-        <div class="dropdown"
-            <button class="dropdwnbtn" type="button">Menu ▾</button>
-            <ul class="dropdwnlst">
-                <a class="index-link" href="/projects/KitchenSite/index.html">Home</a>
-                <a class="index-link" href="/projects/KitchenSite/pages/about.html">About</a>
-                <a class="index-link" href="/Projects/KitchenSite/recipes.html">Recipes</a>
-                <a class="index-link" href="/Projects/KitchenSite/catering.html">Catering Plans</a>
-                <a class="index-link" href="/Projects/KitchenSite/foodtruck.html">Food Truck Dream</a>
-            </ul>
-    </nav>
-        <main>
-            <section>
-                <h2 class="Getting_Here">The American Dream</h2>
-                <p>Born and Rasied in the middle of the ocean on a rock, moving to the mainland seemed like something I would never do. 26 years of life in Hawaii really changed my perspective, If i ever wanted my dreams to come true it wouldn't be there. In the pursuit of happiness to make that 13 year old kids dream a reality.</p>
-                        
+      <section class="k-section" id="story">
+        <div class="k-wrap k-story">
+          <h2>The American Dream</h2>
+          <p>
+            Born and raised in the middle of the ocean on a rock, moving to the mainland seemed like
+            something I would never do. 26 years of life in Hawaiʻi really changed my perspective. If
+            I ever wanted my dreams to come true, it wouldn't be there. So I left, in the pursuit of
+            happiness, to make that 13-year-old kid's dream a reality.
+          </p>
+        </div>
+      </section>
 
-            </section>
-            
+      <section class="k-section k-alt" id="dishes">
+        <div class="k-wrap">
+          <h2>Dishes I've cooked</h2>
+          <p class="k-sub">Hover or tap a plate to watch it.</p>
+          <ul class="dishes">
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/beef-ramen.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/beef-ramen.mp4" aria-label="Beef ramen"></video>
+            <p>Beef ramen</p>
+          </li>
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/ahi-tuna-tower.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/ahi-tuna-tower.mp4" aria-label="Ahi tuna tower"></video>
+            <p>Ahi tuna tower</p>
+          </li>
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/pork-belly-bowl.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/pork-belly-bowl.mp4" aria-label="Pork belly bowl"></video>
+            <p>Pork belly bowl</p>
+          </li>
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/seared-ahi-tataki.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/seared-ahi-tataki.mp4" aria-label="Seared ahi tataki"></video>
+            <p>Seared ahi tataki</p>
+          </li>
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/smothered-pork-chop.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/smothered-pork-chop.mp4" aria-label="Smothered pork chop"></video>
+            <p>Smothered pork chop</p>
+          </li>
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/buffalo-wings-blue-cheese.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/buffalo-wings-blue-cheese.mp4" aria-label="Buffalo wings, blue cheese"></video>
+            <p>Buffalo wings, blue cheese</p>
+          </li>
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/burger-and-fries.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/burger-and-fries.mp4" aria-label="Burger and fries"></video>
+            <p>Burger and fries</p>
+          </li>
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/pizza-deck-oven.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/pizza-deck-oven.mp4" aria-label="Pizzas out of the deck oven"></video>
+            <p>Pizzas out of the deck oven</p>
+          </li>
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/pan-pepperoni-pizza.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/pan-pepperoni-pizza.mp4" aria-label="Pan pepperoni pizza"></video>
+            <p>Pan pepperoni pizza</p>
+          </li>
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/meat-lovers-pizza.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/meat-lovers-pizza.mp4" aria-label="Meat lovers pizza"></video>
+            <p>Meat lovers pizza</p>
+          </li>
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/pesto-pepperoni-pizza.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/pesto-pepperoni-pizza.mp4" aria-label="Pesto pepperoni pizza"></video>
+            <p>Pesto pepperoni pizza</p>
+          </li>
+          <li class="dish">
+            <video class="lazy-video" muted loop playsinline preload="none" width="1080" height="1080"
+              poster="assests/posters/pineapple-jalapeno-pizza.webp" data-src="assests/imgaes/sitestuff/animations-mp4/animated/cards/pineapple-jalapeno-pizza.mp4" aria-label="Pineapple jalapeño pizza"></video>
+            <p>Pineapple jalapeño pizza</p>
+          </li>
+          </ul>
+        </div>
+      </section>
 
+      <section class="k-section" id="next">
+        <div class="k-wrap">
+          <h2>What's next</h2>
+          <ul class="k-next">
+            <li><h3>Recipes</h3><p>Written up one at a time, starting with truffle crab ramen.</p></li>
+            <li><h3>Catering</h3><p>Menus and plans for cooking for a crowd.</p></li>
+            <li><h3>The food truck</h3><p>The dream, with a menu to go with it.</p></li>
+          </ul>
+          <p class="k-sub">These pages are still being written.</p>
+        </div>
+      </section>
+    </main>
 
-            <section>
-                <h2 class="Plans">Catering & Food Truck</h2>
-            
-            </section>
+    <footer class="k-footer">
+      <div class="k-wrap"><a href="../../">Back to the portfolio</a></div>
+    </footer>
 
-
-
-            
-            <section>
-                <h2 class="Different_Cultures">Cuisines Ive Cooked</h2>
-            
-            </section>
-
-            <section>
-                <h2 class="sumaboutme">A Little about Me</h2>
-            
-            </section>
-          
-            <footer>
-
-            </footer>
-        </main>
-    </body>
+    <script src="js/main.js" defer></script>
+  </body>
 </html>

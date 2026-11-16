@@ -1,88 +1,218 @@
+/* Kitchen home page. Same night-kitchen palette as the portfolio, kept dark on
+   purpose: the dish videos are shot on a deep purple ground. */
+
+:root {
+  color-scheme: dark;
+  --bg: #15111d;
+  --bg-alt: #1b1626;
+  --line: #372d4a;
+  --fg: #f3eef9;
+  --muted: #ada3c0;
+  --accent: #ffb23e;
+  --display: 'Bricolage Grotesque', 'Arial Narrow', system-ui, sans-serif;
+  --body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+}
+
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.background {
-    position: relative;
-    min-height: 100vh;
-    background-image: url('/Projects/KitchenSite/assests/imgaes/sitestuff/animations-gif-banners/animated/banners/cards-knife-cut.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;    
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
 }
 
-.background::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 1.0625rem/1.6 var(--body);
 }
 
-#top_page {
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    border: 5px solid neonpurple;
-    
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+ul {
+  padding: 0;
+  list-style: none;
 }
 
-.indexnav {
-    justify-content: center;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    border: 2px solid neonpurple;
-    background: neongreen;
-    padding: 0.5rem 1rem;
-    max-width: 50rem;
-    margin-inline: auto;
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
-.index-link {
-    color: neonpurple;
-    text-decoration: none;
-    padding: .5rem 2rem;
+a {
+  color: inherit;
 }
-.index-link:hover {
-    color: neonblue;
-    text-decoration: underline;
-}
-.index-link:focus-visible {
-    outline: 2px solid neonblue;
-
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-.dropdwnlst {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    top: 100%;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    translate: 0 -8px;
-    transition: opacity 200ms, translate 200ms, visibility 4s;
-    border: 1px solid neonpurple;
-    background: neongreen;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-.dropdown:hover .dropdwnlst,
-.dropdown:focus-within .dropdwnlst {
-    opacity: 1;
-    visibility: visible;
-    translate: 0 0;
+.k-wrap {
+  max-width: 68rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
 }
 
-.Getting_Here {
-    text-align: center;
+/* Header */
+.k-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.k-header-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  min-height: 3.5rem;
+}
+.k-back {
+  font-weight: 600;
+  text-decoration: none;
+}
+.k-nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.9375rem;
+}
+.k-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding-block: 0.5rem;
+}
+.k-nav a:hover,
+.k-back:hover {
+  color: var(--accent);
+}
+
+/* Hero */
+.k-hero {
+  border-bottom: 1px solid var(--line);
+}
+.k-hero-video {
+  width: 100%;
+  aspect-ratio: 1920 / 800;
+  object-fit: cover;
+}
+.k-hero-copy {
+  display: grid;
+  gap: 0.75rem;
+  padding-block: clamp(2rem, 6vw, 4rem);
+}
+.k-eyebrow {
+  font: 600 0.75rem var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.k-hero h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 800;
+}
+
+/* Sections */
+.k-section {
+  padding-block: clamp(3rem, 8vw, 5.5rem);
+}
+.k-alt {
+  background: var(--bg-alt);
+}
+.k-section h2 {
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  font-weight: 700;
+}
+.k-sub {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+.k-story {
+  display: grid;
+  gap: 1.25rem;
+}
+.k-story p {
+  max-width: 38rem;
+  font-size: 1.1875rem;
+}
+
+/* Dish grid */
+.dishes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.dish {
+  display: grid;
+  gap: 0.5rem;
+}
+.dish video {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+.dish p {
+  font-weight: 500;
+}
+
+/* What's next */
+.k-next {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.k-next li {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+}
+.k-next h3 {
+  font-size: 1.25rem;
+}
+.k-next p {
+  color: var(--muted);
+}
+
+.k-footer {
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

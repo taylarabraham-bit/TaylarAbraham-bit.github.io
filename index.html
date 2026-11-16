@@ -1,32 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Taylar Abraham Portfolio</title>
-        <link rel="stylesheet" href="css/style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-<body>
-        <header><h1>Taylar Abraham Portfolio</h1></header>
-<nav class="homenav">
-    <div class="dropdown">
-        <button class="dropdwnbtn" type="button">Menu ▾</button>
-        <ul class="dropdwnlst">
-            <a class="homelist" href="/index.html">Home</a>
-            <a class="homelist" href="/Projects/KitchenSite/index.html">Kitchen Recipes</a>
-        </ul>
-    </div>
-</nav>
-    <main>
-        <section>
-            <h2 class="aboutme">About Me</h2>
-            <p></p>
-        </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taylar Abraham — Games, engines and apps</title>
+    <meta
+      name="description"
+      content="Portfolio of Taylar Abraham: a shipped coding game, a C++ game engine, three survival games, and a family of household apps."
+    />
+    <meta property="og:title" content="Taylar Abraham — Games, engines and apps" />
+    <meta
+      property="og:description"
+      content="A shipped coding game, a C++ game engine, three survival games, and a family of household apps."
+    />
+    <meta property="og:image" content="https://taylarabraham-bit.github.io/assets/img/codequest-hero.webp" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      // Apply a saved theme before first paint so the page never flashes.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+  </head>
 
-        <section>
-            <h2 class="projects">Projects</h2>
-            <p></p>
-        </section>
+  <body>
+    <a class="skip" href="#work">Skip to projects</a>
 
-</body>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="#top" aria-label="Taylar Abraham, home">
+          <span class="brand-mark" aria-hidden="true">TA</span>
+          <span class="brand-name">Taylar Abraham</span>
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="#work">Work</a>
+          <a href="#prep">Prep list</a>
+          <a href="#coursework">Coursework</a>
+          <a href="#about">About</a>
+          <a href="Projects/KitchenSite/">Kitchen</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <span aria-hidden="true" class="theme-icon"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ───────────── Hero ───────────── -->
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Portfolio · Hawaiʻi-raised cook and builder</p>
+            <h1>I build games, the engine under them, and the apps my household runs on.</h1>
+            <p class="lede">
+              I'm Taylar. I cook, and I build software the way a kitchen line runs:
+              prep everything, test every plate, and nothing leaves the pass until it's right. Here's
+              what I've been building.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#work">See the work</a>
+              <a class="btn" href="https://github.com/taylarabraham-bit" rel="noopener">GitHub</a>
+            </div>
+          </div>
+
+          <!-- The order rail: one ticket per build, grouped by how done it is. -->
+          <aside class="rail" aria-label="Project status at a glance">
+            <p class="rail-title">The rail</p>
+            <ul class="rail-list">
+              <li><a href="#codequest"><span class="dot dot-live"></span>CodeQuest<span class="rail-state">Shipped</span></a></li>
+              <li><a href="#money-manager"><span class="dot dot-live"></span>Money Manager<span class="rail-state">Live</span></a></li>
+              <li><a href="#survivor-forge"><span class="dot dot-fire"></span>Survivor Forge<span class="rail-state">Working</span></a></li>
+              <li><a href="#deadlight"><span class="dot dot-fire"></span>Deadlight City<span class="rail-state">Playable</span></a></li>
+              <li><a href="#multi-apocalypse"><span class="dot dot-fire"></span>Multi-Apocalypse<span class="rail-state">In production</span></a></li>
+              <li><a href="#irl-rpg"><span class="dot dot-fire"></span>IRL RPG family<span class="rail-state">Private beta</span></a></li>
+              <li><a href="#kitchen"><span class="dot dot-fire"></span>Kitchen site<span class="rail-state">In progress</span></a></li>
+              <li><a href="#prep"><span class="dot dot-prep"></span>Jot + 5 more<span class="rail-state">Prep</span></a></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ───────────── On the pass ───────────── -->
+      <section class="tier" id="work" aria-labelledby="pass-title">
+        <div class="wrap">
+          <header class="tier-head">
+            <p class="eyebrow"><span class="dot dot-live"></span>On the pass</p>
+            <h2 id="pass-title">Released. You can run these today.</h2>
+          </header>
+
+          <article class="project" id="codequest">
+            <a class="shot" href="https://github.com/taylarabraham-bit/codequest-app" rel="noopener">
+              <img
+                src="assets/img/codequest-hero.webp"
+                width="1280"
+                height="720"
+                alt="CodeQuest running on a laptop and a phone"
+              />
+            </a>
+            <div class="project-body">
+              <p class="ticket"><span>Coding game</span><span>Windows · Android</span><span class="state state-live">Shipped</span></p>
+              <h3>CodeQuest</h3>
+              <p class="pitch">
+                A coding game with lessons short enough to fit between other things. You read one
+                idea, then type it straight away, earning XP, streaks and badges. No account, no
+                setup, works offline.
+              </p>
+              <dl class="figures">
+                <div><dt>Tracks</dt><dd>7</dd></div>
+                <div><dt>Lessons</dt><dd>705</dd></div>
+                <div><dt>Exercises</dt><dd>7,755</dd></div>
+                <div><dt>Desktop challenges</dt><dd>1,410</dd></div>
+              </dl>
+              <ul class="notes">
+                <li>Seven tracks: HTML, CSS, C#, ASP.NET, Blazor, Docker and Ollama, each with unit bosses, a final exam and a certificate.</li>
+                <li>The desktop edition is keyboard-first with a three-pane Instructions / Code / Output screen and guided tours of mock VS Code, Visual Studio, DevTools and Docker Desktop.</li>
+                <li>Every exercise's answer is checked against the grader in the test suite, and scripted browser runs play each lesson, boss and exam end to end.</li>
+                <li>Every push to main lints, typechecks, tests, builds the Android APK and Windows .exe, and publishes a release.</li>
+              </ul>
+              <p class="stack">React 18 · TypeScript · Vite · Electron · Capacitor · Vitest · Playwright · GitHub Actions</p>
+              <div class="links">
+                <a class="btn btn-primary" href="https://github.com/taylarabraham-bit/codequest-app/releases/latest" rel="noopener">Download</a>
+                <a class="btn" href="https://github.com/taylarabraham-bit/codequest-app" rel="noopener">Source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project project-flip" id="money-manager">
+            <div class="shot shot-type" aria-hidden="true">
+              <div class="ledger">
+                <p class="ledger-head">Settle-up · split in whole cents</p>
+                <p class="ledger-row"><span>Groceries</span><span>100.00</span></p>
+                <p class="ledger-row sub"><span>share 1 of 3</span><span>33.34</span></p>
+                <p class="ledger-row sub"><span>share 2 of 3</span><span>33.33</span></p>
+                <p class="ledger-row sub"><span>share 3 of 3</span><span>33.33</span></p>
+                <p class="ledger-row total"><span>shares sum to</span><span>100.00</span></p>
+              </div>
+            </div>
+            <div class="project-body">
+              <p class="ticket"><span>Household app</span><span>Web · Android</span><span class="state state-live">Live</span></p>
+              <h3>Money Manager</h3>
+              <p class="pitch">
+                An offline-first household budget: members, per-person budgets, goals, bills,
+                paydays and who-owes-whom. It installs as a web app or an Android APK, and syncs
+                through a backend you host yourself.
+              </p>
+              <ul class="notes">
+                <li>A sync engine I wrote for it: newest edit wins, the server clamps device clocks, and a browser harness replays 14 edit-versus-pull races in CI.</li>
+                <li>The test suite runs a second time in a Sydney time zone to catch date bugs before they reach a payday.</li>
+                <li>A responsive audit drives the app at 11 screen sizes from 280px to 1920px, and an offline check runs before every deploy.</li>
+                <li>Its own 24-component design system, with rules like the one shown here: split shares always add back up to the cent.</li>
+              </ul>
+              <p class="stack">React 18 · TypeScript · Vite · Capacitor · Supabase · Playwright · GitHub Pages</p>
+              <div class="links">
+                <a class="btn btn-primary" href="https://taylarabraham-bit.github.io/budget-app-money-manager/" rel="noopener">Open the app</a>
+                <span class="private">Source is private</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ───────────── On the fire ───────────── -->
+      <section class="tier tier-alt" aria-labelledby="fire-title">
+        <div class="wrap">
+          <header class="tier-head">
+            <p class="eyebrow"><span class="dot dot-fire"></span>On the fire</p>
+            <h2 id="fire-title">Running and playable, still cooking.</h2>
+          </header>
+
+          <article class="project" id="survivor-forge">
+            <div class="shot">
+              <img
+                src="assets/img/forge-editor.webp"
+                width="1440"
+                height="770"
+                loading="lazy"
+                alt="The Survivor Forge editor: scene hierarchy, a 3D scene view with a live game view, an inspector and an asset browser"
+              />
+            </div>
+            <div class="project-body">
+              <p class="ticket"><span>Game engine</span><span>Windows</span><span class="state state-fire">Working</span></p>
+              <h3>Survivor Forge</h3>
+              <p class="pitch">
+                A 3D game engine and editor written from scratch in C++20, so my survival games have
+                a home I understand all the way down. One editor opens any game project, the way
+                Unity and Unreal do.
+              </p>
+              <ul class="notes">
+                <li>Vulkan renderer with physically based materials, HDR, cascaded and point-light shadows, image-based lighting and screen-space reflections.</li>
+                <li>A deterministic 60 Hz simulation on an entity-component system, with seeded randomness and versioned save snapshots.</li>
+                <li>Each game compiles to its own module behind a stable interface, so you can press Play in the editor, pause, and edit the live world.</li>
+                <li>Jolt physics for characters, vehicles, ragdolls and cloth, Lua scripting, and LAN co-op with client prediction.</li>
+                <li>Still rough: sample scenes use placeholder art and the editor's workflow isn't polished yet.</li>
+              </ul>
+              <p class="stack">C++20 · Vulkan · SDL3 · EnTT · Jolt Physics · Dear ImGui · Lua · CMake · vcpkg</p>
+              <div class="links"><span class="private">Source is private</span></div>
+            </div>
+          </article>
+
+          <article class="project project-flip" id="deadlight">
+            <div class="shot">
+              <img
+                src="assets/img/deadlight-horde.webp"
+                width="1280"
+                height="720"
+                loading="lazy"
+                alt="Deadlight City at night in a storm: the player facing a horde, with a horde-night wave counter on the HUD"
+              />
+            </div>
+            <div class="project-body">
+              <p class="ticket"><span>Survival RPG</span><span>Browser · Windows</span><span class="state state-fire">Playable</span></p>
+              <h3>Deadlight City</h3>
+              <p class="pitch">
+                An offline open-world survival RPG set in one 4 km by 4 km city, with zombies,
+                aliens and demons. It runs in a browser tab or as a portable Windows app, with no
+                game engine underneath: plain JavaScript and three.js.
+              </p>
+              <ul class="notes">
+                <li>The city is generated from a seed and streamed in chunks, so a save only stores what you changed.</li>
+                <li>Characters, animation, sound effects and music are all generated at runtime instead of shipped as files.</li>
+                <li>A hand-built rendering stack: procedural sky, bloom, ambient occlusion, depth of field and four quality presets.</li>
+                <li>Automated gates check that 61 modules have no circular imports, that old saves still load, and that the packaged app boots.</li>
+                <li>Still rough: frame pacing and visual polish are the open work.</li>
+              </ul>
+              <p class="stack">JavaScript (ES modules) · three.js · Electron · Node · Blender Python</p>
+              <div class="links"><span class="private">Source is private</span></div>
+            </div>
+          </article>
+
+          <article class="project" id="multi-apocalypse">
+            <div class="shot shot-type" aria-hidden="true">
+              <ol class="shuffle">
+                <li>Zombies</li>
+                <li>Aliens</li>
+                <li>Fallout</li>
+                <li>Hell portal</li>
+              </ol>
+              <p class="shuffle-note">A different order every new game</p>
+            </div>
+            <div class="project-body">
+              <p class="ticket"><span>Open-world survival</span><span>PC</span><span class="state state-fire">In production</span></p>
+              <h3>Multi-Apocalypse <span class="aside">working title</span></h3>
+              <p class="pitch">
+                A single-player, third-person survival game set in a small New Zealand town. Four
+                apocalypses arrive one at a time, and the order is shuffled for every new game, so
+                you can't plan for the one you're in.
+              </p>
+              <ul class="notes">
+                <li>Companions, base building, crafting, cooking, stealth, weather, a day and night cycle, four mothership bosses and a UFO you can fly.</li>
+                <li>Roughly 190 gameplay scripts backed by a play-mode test suite that runs into the hundreds of files.</li>
+                <li>A 16-point release gate that blocks a build on placeholder assets, missing licence notices, story spoilers in text, or any test that hasn't passed since the last change.</li>
+                <li>A scripted audio pipeline: effects are synthesised in code and the whole mix is audited against loudness targets.</li>
+                <li>358 scripted dialogue lines, about 47 minutes, generated offline and keyed to subtitles.</li>
+              </ul>
+              <p class="stack">Unity 6 (URP) · C# · Python tooling · Blender · Cinemachine</p>
+              <div class="links"><span class="private">Source is private</span></div>
+            </div>
+          </article>
+
+          <article class="project project-flip" id="irl-rpg">
+            <div class="shot shot-type" aria-hidden="true">
+              <ul class="family">
+                <li class="family-root">IRL RPG <span>the original</span></li>
+                <li>Training Grounds <span>body + mind</span></li>
+                <li>Budget <span>household money</span></li>
+                <li class="family-old">Health Quest <span>folded in</span></li>
+                <li class="family-old">Library <span>folded in</span></li>
+              </ul>
+            </div>
+            <div class="project-body">
+              <p class="ticket"><span>App family</span><span>Web · Android · Windows</span><span class="state state-fire">Private beta</span></p>
+              <h3>IRL RPG</h3>
+              <p class="pitch">
+                A real-life RPG for my household: budgeting, workouts, study, cooking and chores
+                earn XP, levels and quests. It started as one big app. I've since split it into
+                smaller apps that share one character and one backend.
+              </p>
+              <ul class="notes">
+                <li><strong>Training Grounds</strong> covers training, learning paths, health tracking and flashcards. It absorbed two earlier apps, Health Quest and Library.</li>
+                <li><strong>Budget</strong> reads bank notifications on Android to capture spending, imports CSV, and updates itself over the air from a server I host.</li>
+                <li>Every app saves through versioned rows with optimistic concurrency, and round-trips the whole record so one app never strips data another owns.</li>
+                <li>Database access rules are covered by contract tests, and each app has around 75 test files, including a check that money is never created or lost.</li>
+              </ul>
+              <p class="stack">React 19 · TypeScript · Vite · Supabase (Postgres, RLS) · Capacitor · Electron · Kotlin plugins</p>
+              <div class="links"><span class="private">Source is private</span></div>
+            </div>
+          </article>
+
+          <article class="project" id="kitchen">
+            <a class="shot" href="Projects/KitchenSite/">
+              <video
+                class="lazy-video"
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster="assets/img/kitchen-banner.webp"
+                width="1280"
+                height="533"
+                data-src="Projects/KitchenSite/assests/imgaes/sitestuff/animations-mp4/animated/banners/banner-slideshow.mp4"
+                aria-label="A slideshow of dishes: pizza, beef ramen, noodles and a pork belly bowl"
+              ></video>
+            </a>
+            <div class="project-body">
+              <p class="ticket"><span>Website</span><span>HTML + CSS</span><span class="state state-fire">In progress</span></p>
+              <h3>Plate Lunch to Plated Courses</h3>
+              <p class="pitch">
+                The other half of the story: a site for the food. Dishes I've cooked, and a home for
+                the recipes, the catering menu and the food truck plan as I write them up.
+              </p>
+              <p class="stack">HTML · CSS · JavaScript, no framework</p>
+              <div class="links">
+                <a class="btn btn-primary" href="Projects/KitchenSite/">Visit the kitchen</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ───────────── Prep list ───────────── -->
+      <section class="tier" id="prep" aria-labelledby="prep-title">
+        <div class="wrap">
+          <header class="tier-head">
+            <p class="eyebrow"><span class="dot dot-prep"></span>Prep list</p>
+            <h2 id="prep-title">Planned. Not started, or barely.</h2>
+          </header>
+          <ul class="prep-grid">
+            <li class="prep prep-lead">
+              <h3>Jot</h3>
+              <p>
+                A self-hosted note-taking app that syncs across my own devices. The idea is a
+                privacy split: everyday notes can use a cloud model, and anything sensitive is
+                transcribed by a model running locally.
+              </p>
+              <p class="prep-state">Designed, not built</p>
+            </li>
+            <li class="prep"><h3>SQL project</h3><p class="prep-state">Planned</p></li>
+            <li class="prep"><h3>Calculator</h3><p class="prep-state">Planned</p></li>
+            <li class="prep"><h3>Task manager</h3><p class="prep-state">Planned</p></li>
+            <li class="prep"><h3>Neural net</h3><p class="prep-state">Planned</p></li>
+            <li class="prep"><h3>LLM</h3><p class="prep-state">Planned</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ───────────── Coursework ───────────── -->
+      <section class="tier tier-alt" id="coursework" aria-labelledby="course-title">
+        <div class="wrap">
+          <header class="tier-head">
+            <p class="eyebrow">Coursework</p>
+            <h2 id="course-title">C# and .NET, assignment by assignment.</h2>
+            <p class="tier-sub">Class exercises, kept public. Smaller than the projects above, and the fundamentals under them.</p>
+          </header>
+          <ul class="course-list">
+            <li>
+              <a href="https://github.com/taylarabraham-bit/T10B---Deployment-Phase-Using-Docker" rel="noopener">Deployment with Docker</a>
+              <span>A multi-stage Dockerfile and Compose file that build and serve a Blazor app.</span>
+            </li>
+            <li>
+              <a href="https://github.com/taylarabraham-bit/T9A---APIs-101" rel="noopener">APIs 101</a>
+              <span>HTTP verbs, endpoints and JSON, calling a chat model from ASP.NET.</span>
+            </li>
+            <li>
+              <a href="https://github.com/taylarabraham-bit/T9C---Data-in-the-Real-World--Working-with-Files" rel="noopener">Working with files</a>
+              <span>Cleaning a messy CSV, converting it to JSON and validating it against a schema.</span>
+            </li>
+            <li>
+              <a href="https://github.com/taylarabraham-bit/T7A---Functions--Errors---Debugging" rel="noopener">Functions, errors and debugging</a>
+              <span>Finding a bug, writing down how, and fixing it.</span>
+            </li>
+            <li>
+              <a href="https://github.com/taylarabraham-bit/T6A---Programming-I--Control-Flow" rel="noopener">Control flow</a>
+              <span>Loops and conditionals: even numbers, FizzBuzz and a multiplication table.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ───────────── About ───────────── -->
+      <section class="tier" id="about" aria-labelledby="about-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">About</p>
+            <h2 id="about-title">From plate lunch to pull requests.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              I was born and raised in Hawaiʻi, on a rock in the middle of the ocean, and spent 26
+              years there before moving to the mainland to chase what I wanted at thirteen. I cook, and
+              I build software with the same habits.
+            </p>
+            <p>
+              I like projects that go all the way down: a game and the engine it runs on, an app and
+              the sync engine behind it. I build with AI coding agents and hold the result to tests,
+              release gates and my own review. If a build doesn't pass, it doesn't ship.
+            </p>
+            <dl class="toolkit">
+              <div><dt>Languages</dt><dd>TypeScript, C#, C++, JavaScript, Python, SQL</dd></div>
+              <div><dt>Apps</dt><dd>React, Vite, Electron, Capacitor, Supabase, Blazor</dd></div>
+              <div><dt>Games</dt><dd>Unity, Vulkan, three.js, Jolt Physics, Blender</dd></div>
+              <div><dt>Shipping</dt><dd>GitHub Actions, Playwright, Vitest, Docker</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <p>Taylar Abraham · plain HTML and CSS, no framework</p>
+        <p>
+          <a href="https://github.com/taylarabraham-bit" rel="noopener">github.com/taylarabraham-bit</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+  </body>
 </html>
