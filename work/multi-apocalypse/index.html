@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Apocalypse — case study — Taylar Abraham</title>
+    <meta
+      name="description"
+      content="How Multi-Apocalypse is being built: a single-player survival game where four apocalypses arrive in a different order every game."
+    />
+    <meta property="og:title" content="Multi-Apocalypse — case study" />
+    <meta
+      property="og:description"
+      content="A single-player survival game where four apocalypses arrive in a different order every game, and the two prototypes that led to it."
+    />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script>
+      // Apply a saved theme before first paint so the page never flashes.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+      // Scripts are on: the ticket machine can fold into a menu button on small screens.
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#top">Skip to the case study</a>
+
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="../../" aria-label="Taylar Abraham, home">
+          <span class="brand-mark" aria-hidden="true">TA</span>
+          <span class="brand-name">Taylar Abraham</span>
+        </a>
+        <!-- The ticket machine: here every key leads back to a section of the home page. -->
+        <nav class="machine" id="machine" aria-label="Main">
+          <button class="machine-toggle" type="button" aria-expanded="false" aria-controls="machine-roll">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6" /><rect x="3" y="9" width="18" height="8" rx="2" /><path d="M7 14h10v7H7z" /></svg>
+            Menu
+          </button>
+          <ul class="machine-roll" id="machine-roll">
+            <li><a href="../../#work">On the pass</a></li>
+            <li><a href="../../#fire">On the fire</a></li>
+            <li><a href="../../#test-kitchen">Test kitchen</a></li>
+            <li><a href="../../#prep">Prep list</a></li>
+            <li><a href="../../#about">About</a></li>
+            <li><a href="../../Projects/KitchenSite/">Kitchen</a></li>
+          </ul>
+        </nav>
+        <button class="icon-btn" id="sound-toggle" type="button" aria-pressed="false" aria-label="Printer sound">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path class="sound-on" d="M16.5 8.5a5 5 0 0 1 0 7" /><path class="sound-off" d="m17 9 5 6m0-6-5 6" /></svg>
+        </button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <span aria-hidden="true" class="theme-icon"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <header class="wrap case-head">
+        <a class="back" href="../../#multi-apocalypse">← Back to the fire</a>
+        <p class="meta"><span class="stamp">Chef's special</span><span>Open-world survival</span><span>PC</span><span class="state state-fire">In production</span></p>
+        <h1>Multi-Apocalypse <span class="aside">working title</span></h1>
+        <p class="lede">
+          A single-player, third-person survival game set in a small New Zealand town. Zombies come
+          first. Then aliens, fallout and a portal to hell, one at a time, in a different order
+          every new game.
+        </p>
+      </header>
+
+      <div class="wrap case-hero">
+        <div class="special">
+          <!-- Shares its view-transition-name with the card on the home page, so one grows into the other. -->
+          <div class="shot shot-type" style="view-transition-name: shot-multi-apocalypse" aria-hidden="true">
+            <ol class="shuffle">
+              <li>Zombies</li>
+              <li>Aliens</li>
+              <li>Fallout</li>
+              <li>Hell portal</li>
+            </ol>
+            <p class="shuffle-note">A different order every new game</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ───────────── The order ───────────── -->
+      <section class="tier" aria-labelledby="order-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">01 · The order</p>
+            <h2 id="order-title">What it is.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              The world doesn't end once. It ends slowly, one apocalypse at a time. You play Asher, a
+              chef halfway through retraining as a software developer when the dead get up. Every few
+              days something new arrives, and you can't plan for it, because the order changes every
+              game.
+            </p>
+            <p>
+              By day you scavenge. By night you hold a safe house: any shop in town can be claimed,
+              boarded up and built out with a workbench, storage and a garage. Along the way you
+              rescue survivors who fight beside you, bring down four motherships, and repair a
+              crashed UFO to fly yourself.
+            </p>
+            <p>
+              It's built for evenings. Every session has something worth doing, the game saves each
+              time you sleep, and a log tells you what you were in the middle of when you come back.
+            </p>
+            <p>
+              This is my biggest project, and my third run at the same idea. The first two are in
+              the test kitchen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────────── Prep ───────────── -->
+      <section class="tier tier-alt" aria-labelledby="prep-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">02 · Prep</p>
+            <h2 id="prep-title">Two prototypes, then the real thing.</h2>
+          </div>
+          <div class="about-copy">
+            <ol class="lineage-steps">
+              <li>
+                <p class="meta"><span>First shot</span><span>Browser · three.js</span><span class="state state-test">Prototype</span></p>
+                <h3><a href="../../#deadlight">Deadlight City</a></h3>
+                <p>
+                  An open-world survival RPG in one city, with zombies, aliens and demons, written in
+                  plain JavaScript with no engine under it.
+                </p>
+                <p class="carried"><strong>Carried forward:</strong> more than one apocalypse in one open world, sound made in code instead of shipped as files, and automated gates that stop a broken build.</p>
+              </li>
+              <li>
+                <p class="meta"><span>Second shot</span><span>C++20 · Vulkan</span><span class="state state-test">Prototype</span></p>
+                <h3><a href="../../#survivor-forge">Survivor Forge</a></h3>
+                <p>
+                  A 3D engine and editor from scratch, to understand a survival game all the way
+                  down: rendering, physics, saves and a simulation that plays back the same way
+                  every time.
+                </p>
+                <p class="carried"><strong>Carried forward:</strong> seeded randomness, versioned saves, and a clear picture of what an engine has to do before handing that job to Unity.</p>
+              </li>
+              <li aria-current="true">
+                <p class="meta"><span>The game</span><span>Unity 6 · C#</span><span class="state state-fire">In production</span></p>
+                <h3>Multi-Apocalypse</h3>
+                <p>
+                  The same idea on an engine I don't have to build, so the time goes into the game.
+                </p>
+              </li>
+            </ol>
+            <p class="stack">Unity 6 (URP) · C# · Python tooling · Blender · Cinemachine</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────────── The cook ───────────── -->
+      <section class="tier" aria-labelledby="cook-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">03 · The cook</p>
+            <h2 id="cook-title">The hard parts.</h2>
+          </div>
+          <div class="about-copy">
+            <dl class="figures">
+              <div><dt>Gameplay scripts</dt><dd>~190</dd></div>
+              <div><dt>Release checks</dt><dd>16</dd></div>
+              <div><dt>Dialogue lines</dt><dd>358</dd></div>
+              <div><dt>Weapons</dt><dd>20</dd></div>
+            </dl>
+            <ul class="notes">
+              <li>
+                <strong>An order nobody can plan for.</strong> Zombies always come first, and the
+                other three apocalypses are shuffled for every new game, so every system has to hold
+                up whichever one arrives next.
+              </li>
+              <li>
+                <strong>A release gate that can say no.</strong> One script checks 16 things and
+                prints PASS or a numbered list of what to fix. It blocks a build on placeholder
+                assets, missing licence notices, story spoilers in any text the player can see, and
+                any test that hasn't passed since the scripts last changed.
+              </li>
+              <li>
+                <strong>Tests that can't go stale.</strong> The play-mode suite runs into the
+                hundreds of files and runs in chunks. A test only counts if its latest result is a
+                pass from a run made after the newest script change.
+              </li>
+              <li>
+                <strong>Placeholder until proven otherwise.</strong> Every imported model, texture,
+                animation, sound and font counts as a placeholder until it has been reworked. Reworked
+                pieces carry a stamp the release gate can read.
+              </li>
+              <li>
+                <strong>Audio from code.</strong> Sound effects are synthesised by script and the
+                whole mix is audited against loudness targets. The 358 dialogue lines, about 47
+                minutes, are generated offline and keyed to subtitles.
+              </li>
+              <li>
+                <strong>Nothing phones home.</strong> The build tools stay out of the shipped game,
+                and the release can't contact the engine maker's servers.
+              </li>
+            </ul>
+            <p>
+              I build with AI coding agents and hold the result to those tests, that gate and my
+              own review. If a build doesn't pass, it doesn't ship.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────────── On the pass ───────────── -->
+      <section class="tier tier-alt" aria-labelledby="pass-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">04 · On the pass</p>
+            <h2 id="pass-title">Not on the pass yet.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              Multi-Apocalypse is in production. It runs and plays, the systems above are in, and
+              the art is being reworked piece by piece. There's no public build, and the source is
+              private.
+            </p>
+            <p>
+              Gameplay clips are on the way. They'll show the systems and the opening of each
+              apocalypse, and nothing of the story.
+            </p>
+            <div class="links">
+              <a class="btn btn-primary" href="../../#multi-apocalypse">Back to the fire</a>
+              <a class="btn" href="../../#test-kitchen">See the prototypes</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <p>Taylar Abraham · plain HTML and CSS, no framework</p>
+        <p>
+          <a href="https://github.com/taylarabraham-bit" rel="noopener">github.com/taylarabraham-bit</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js" defer></script>
+  </body>
+</html>
