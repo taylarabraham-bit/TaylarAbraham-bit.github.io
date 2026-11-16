@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Money Manager — case study — Taylar Abraham</title>
+    <meta name="description" content="How Money Manager was built: an offline-first household budget app with its own sync engine, for web and Android." />
+    <meta property="og:title" content="Money Manager — case study" />
+    <meta property="og:description" content="How Money Manager was built: an offline-first household budget app with its own sync engine, for web and Android." />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script>
+      // Apply a saved theme before first paint so the page never flashes.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+      // Scripts are on: the ticket machine can fold into a menu button on small screens.
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#top">Skip to the case study</a>
+
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="../../" aria-label="Taylar Abraham, home">
+          <span class="brand-mark" aria-hidden="true">TA</span>
+          <span class="brand-name">Taylar Abraham</span>
+        </a>
+        <!-- The ticket machine: here every key leads back to a section of the home page. -->
+        <nav class="machine" id="machine" aria-label="Main">
+          <button class="machine-toggle" type="button" aria-expanded="false" aria-controls="machine-roll">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6" /><rect x="3" y="9" width="18" height="8" rx="2" /><path d="M7 14h10v7H7z" /></svg>
+            Menu
+          </button>
+          <ul class="machine-roll" id="machine-roll">
+            <li><a href="../../#work">On the pass</a></li>
+            <li><a href="../../#fire">On the fire</a></li>
+            <li><a href="../../#test-kitchen">Test kitchen</a></li>
+            <li><a href="../../#prep">Prep list</a></li>
+            <li><a href="../../#about">About</a></li>
+            <li><a href="../../Projects/KitchenSite/">Kitchen</a></li>
+          </ul>
+        </nav>
+        <button class="icon-btn" id="sound-toggle" type="button" aria-pressed="false" aria-label="Printer sound">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path class="sound-on" d="M16.5 8.5a5 5 0 0 1 0 7" /><path class="sound-off" d="m17 9 5 6m0-6-5 6" /></svg>
+        </button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <span aria-hidden="true" class="theme-icon"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <header class="wrap case-head">
+        <a class="back" href="../../#money-manager">← Back to the pass</a>
+        <p class="meta"><span>Household app</span><span>Web · Android</span><span class="state state-live">Live</span></p>
+        <h1>Money Manager</h1>
+        <p class="lede">
+          An offline-first household budget: members, per-person budgets, goals, bills, paydays and
+          who-owes-whom. It installs as a web app or an Android APK, and syncs through a backend you
+          host yourself.
+        </p>
+      </header>
+
+      <div class="wrap case-hero">
+        <!-- Shares its view-transition-name with the card on the home page, so one grows into the other. -->
+        <div class="shot shot-type paper" style="view-transition-name: shot-money-manager" aria-hidden="true">
+          <div class="ledger">
+            <p class="ledger-head">Settle-up · split in whole cents</p>
+            <p class="ledger-row"><span>Groceries</span><span>100.00</span></p>
+            <p class="ledger-row sub"><span>share 1 of 3</span><span>33.34</span></p>
+            <p class="ledger-row sub"><span>share 2 of 3</span><span>33.33</span></p>
+            <p class="ledger-row sub"><span>share 3 of 3</span><span>33.33</span></p>
+            <p class="ledger-row total"><span>shares sum to</span><span>100.00</span></p>
+          </div>
+        </div>
+      </div>
+
+      <section class="tier" aria-labelledby="order-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">01 · The order</p>
+            <h2 id="order-title">What it is.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              A budget app for a household. It keeps the members of the house, a personal budget for
+              each of them, savings goals, bills, paydays and a purchase log you fill in by hand, and it
+              works out who owes whom.
+            </p>
+            <p>
+              It's offline-first. Everything is saved on the device you use it on, so it works with no
+              connection and no account. You can look around a sample household before you set up your
+              own, and nothing is saved until you change something.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier tier-alt" aria-labelledby="prep-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">02 · Prep</p>
+            <h2 id="prep-title">Your data, your devices.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              It runs as a web app you install from the browser, or as an Android APK. A single phone
+              never needs a server.
+            </p>
+            <p>
+              Sync is off by default. If two people want the same numbers on two devices, they can carry
+              a backup file across, or point both devices at a database they host themselves. Changes
+              then show up on the other device within seconds, and queue up while a device is offline.
+            </p>
+            <p class="stack">React 18 · TypeScript · Vite · Capacitor · Supabase · Playwright · GitHub Pages</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier" aria-labelledby="cook-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">03 · The cook</p>
+            <h2 id="cook-title">The hard parts.</h2>
+          </div>
+          <div class="about-copy">
+            <dl class="figures">
+              <div><dt>Sync races replayed</dt><dd>14</dd></div>
+              <div><dt>Screen sizes audited</dt><dd>11</dd></div>
+              <div><dt>Design-system components</dt><dd>24</dd></div>
+            </dl>
+            <ul class="notes">
+              <li>
+                <strong>A sync engine I wrote for it.</strong> The newest edit wins, the server clamps
+                device clocks so a phone with the wrong time can't win forever, and a browser harness
+                replays 14 edit-versus-pull races in CI.
+              </li>
+              <li>
+                <strong>Dates that survive a time zone.</strong> The test suite runs a second time in a
+                Sydney time zone, to catch date bugs before they reach a payday.
+              </li>
+              <li>
+                <strong>Money that adds up.</strong> Split shares always add back up to the cent: 100.00
+                split three ways is 33.34, 33.33 and 33.33.
+              </li>
+              <li>
+                <strong>Every screen size, checked.</strong> A responsive audit drives the app at 11
+                sizes from 280px to 1920px, and an offline check runs before every deploy.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier tier-alt" aria-labelledby="pass-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">04 · On the pass</p>
+            <h2 id="pass-title">Live. You can open it today.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              New versions go live on their own whenever a change lands on the main branch and passes
+              its checks, and the app picks them up the next time you open it. The source is private.
+            </p>
+            <div class="links">
+              <a class="btn btn-primary" href="https://taylarabraham-bit.github.io/budget-app-money-manager/" rel="noopener">Open the app</a>
+              <a class="btn" href="../../#money-manager">Back to the pass</a>
+              <a class="btn" href="../multi-apocalypse/">Next: Multi-Apocalypse</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <p>Taylar Abraham · plain HTML and CSS, no framework</p>
+        <p>
+          <a href="https://github.com/taylarabraham-bit" rel="noopener">github.com/taylarabraham-bit</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js" defer></script>
+  </body>
+</html>

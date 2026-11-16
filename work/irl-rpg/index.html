@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IRL RPG — case study — Taylar Abraham</title>
+    <meta name="description" content="How IRL RPG is being built: a real-life RPG for one household, split into a family of apps that share one character and one backend." />
+    <meta property="og:title" content="IRL RPG — case study" />
+    <meta property="og:description" content="How IRL RPG is being built: a real-life RPG for one household, split into a family of apps that share one character and one backend." />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script>
+      // Apply a saved theme before first paint so the page never flashes.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+      // Scripts are on: the ticket machine can fold into a menu button on small screens.
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#top">Skip to the case study</a>
+
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="../../" aria-label="Taylar Abraham, home">
+          <span class="brand-mark" aria-hidden="true">TA</span>
+          <span class="brand-name">Taylar Abraham</span>
+        </a>
+        <!-- The ticket machine: here every key leads back to a section of the home page. -->
+        <nav class="machine" id="machine" aria-label="Main">
+          <button class="machine-toggle" type="button" aria-expanded="false" aria-controls="machine-roll">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6" /><rect x="3" y="9" width="18" height="8" rx="2" /><path d="M7 14h10v7H7z" /></svg>
+            Menu
+          </button>
+          <ul class="machine-roll" id="machine-roll">
+            <li><a href="../../#work">On the pass</a></li>
+            <li><a href="../../#fire">On the fire</a></li>
+            <li><a href="../../#test-kitchen">Test kitchen</a></li>
+            <li><a href="../../#prep">Prep list</a></li>
+            <li><a href="../../#about">About</a></li>
+            <li><a href="../../Projects/KitchenSite/">Kitchen</a></li>
+          </ul>
+        </nav>
+        <button class="icon-btn" id="sound-toggle" type="button" aria-pressed="false" aria-label="Printer sound">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path class="sound-on" d="M16.5 8.5a5 5 0 0 1 0 7" /><path class="sound-off" d="m17 9 5 6m0-6-5 6" /></svg>
+        </button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <span aria-hidden="true" class="theme-icon"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <header class="wrap case-head">
+        <a class="back" href="../../#irl-rpg">← Back to the fire</a>
+        <p class="meta"><span>App family</span><span>Web · Android · Windows</span><span class="state state-fire">Private beta</span></p>
+        <h1>IRL RPG</h1>
+        <p class="lede">
+          A real-life RPG for my household: budgeting, workouts, study, cooking and chores earn XP,
+          levels and quests. It started as one big app. I've since split it into smaller apps that
+          share one character and one backend.
+        </p>
+      </header>
+
+      <div class="wrap case-hero">
+        <!-- Shares its view-transition-name with the card on the home page, so one grows into the other. -->
+        <div class="shot shot-type" style="view-transition-name: shot-irl-rpg" aria-hidden="true">
+          <ul class="family">
+            <li class="family-root">IRL RPG <span>the original</span></li>
+            <li>Training Grounds <span>body + mind</span></li>
+            <li>Budget <span>household money</span></li>
+            <li class="family-old">Health Quest <span>folded in</span></li>
+            <li class="family-old">Library <span>folded in</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="tier" aria-labelledby="order-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">01 · The order</p>
+            <h2 id="order-title">What it is.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              The things a household has to do anyway, turned into a game. A daily quest board hands out
+              quests across money, training, study, cooking and chores. Finishing them earns XP, levels,
+              stat rewards and streaks for a character you build yourself.
+            </p>
+            <p>
+              It's made for the people in my house, and that's who is using it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier tier-alt" aria-labelledby="prep-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">02 · Prep</p>
+            <h2 id="prep-title">One big app, then a family.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              The first version did everything in one app. It has since been split into smaller apps
+              that share one character and one backend.
+            </p>
+            <ul class="notes">
+              <li><strong>Training Grounds</strong> covers training, learning paths, health tracking and flashcards. It absorbed two earlier apps, Health Quest and Library.</li>
+              <li><strong>Budget</strong> reads bank notifications on Android to capture spending, imports CSV, and updates itself over the air from a server I host.</li>
+            </ul>
+            <p class="stack">React 19 · TypeScript · Vite · Supabase (Postgres, RLS) · Capacitor · Electron · Kotlin plugins</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier" aria-labelledby="cook-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">03 · The cook</p>
+            <h2 id="cook-title">The hard parts.</h2>
+          </div>
+          <div class="about-copy">
+            <ul class="notes">
+              <li>
+                <strong>Apps that share a record without wrecking it.</strong> Every app saves through
+                versioned rows with optimistic concurrency, and round-trips the whole record, so one app
+                never strips data another owns.
+              </li>
+              <li>
+                <strong>Access rules under test.</strong> The database's access rules are covered by
+                contract tests.
+              </li>
+              <li>
+                <strong>Money is never created or lost.</strong> Each app has around 75 test files, and
+                one of the checks is exactly that.
+              </li>
+              <li>
+                <strong>Real apps, not wrapped websites.</strong> The Android and Windows builds load
+                their own packaged files instead of wrapping a hosted site.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier tier-alt" aria-labelledby="pass-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">04 · On the pass</p>
+            <h2 id="pass-title">In private beta.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              IRL RPG is running in my household and isn't open to anyone else yet. The source is
+              private.
+            </p>
+            <div class="links">
+              <a class="btn" href="../../#irl-rpg">Back to the fire</a>
+              <a class="btn" href="../deadlight-city/">Next: Deadlight City</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <p>Taylar Abraham · plain HTML and CSS, no framework</p>
+        <p>
+          <a href="https://github.com/taylarabraham-bit" rel="noopener">github.com/taylarabraham-bit</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js" defer></script>
+  </body>
+</html>

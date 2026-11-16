@@ -1030,6 +1030,10 @@ ol {
 .case-hero .special {
   margin-bottom: 0;
 }
+/* a receipt stays receipt-sized, and a family tree stays readable */
+.case-hero .shot-type:not(.special *) {
+  max-width: 32rem;
+}
 
 /* The lineage in full: each project, and what was carried forward from it */
 .lineage-steps {

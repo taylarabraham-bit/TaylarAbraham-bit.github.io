@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deadlight City — case study — Taylar Abraham</title>
+    <meta name="description" content="Deadlight City: a browser-based open-world survival prototype in plain JavaScript and three.js, and the first shot at Multi-Apocalypse." />
+    <meta property="og:title" content="Deadlight City — case study" />
+    <meta property="og:description" content="Deadlight City: a browser-based open-world survival prototype in plain JavaScript and three.js, and the first shot at Multi-Apocalypse." />
+    <meta property="og:image" content="https://taylarabraham-bit.github.io/assets/img/deadlight-horde.webp" />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script>
+      // Apply a saved theme before first paint so the page never flashes.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+      // Scripts are on: the ticket machine can fold into a menu button on small screens.
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#top">Skip to the case study</a>
+
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="../../" aria-label="Taylar Abraham, home">
+          <span class="brand-mark" aria-hidden="true">TA</span>
+          <span class="brand-name">Taylar Abraham</span>
+        </a>
+        <!-- The ticket machine: here every key leads back to a section of the home page. -->
+        <nav class="machine" id="machine" aria-label="Main">
+          <button class="machine-toggle" type="button" aria-expanded="false" aria-controls="machine-roll">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6" /><rect x="3" y="9" width="18" height="8" rx="2" /><path d="M7 14h10v7H7z" /></svg>
+            Menu
+          </button>
+          <ul class="machine-roll" id="machine-roll">
+            <li><a href="../../#work">On the pass</a></li>
+            <li><a href="../../#fire">On the fire</a></li>
+            <li><a href="../../#test-kitchen">Test kitchen</a></li>
+            <li><a href="../../#prep">Prep list</a></li>
+            <li><a href="../../#about">About</a></li>
+            <li><a href="../../Projects/KitchenSite/">Kitchen</a></li>
+          </ul>
+        </nav>
+        <button class="icon-btn" id="sound-toggle" type="button" aria-pressed="false" aria-label="Printer sound">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path class="sound-on" d="M16.5 8.5a5 5 0 0 1 0 7" /><path class="sound-off" d="m17 9 5 6m0-6-5 6" /></svg>
+        </button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <span aria-hidden="true" class="theme-icon"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <header class="wrap case-head">
+        <a class="back" href="../../#deadlight">← Back to the test kitchen</a>
+        <p class="meta"><span>Survival RPG</span><span>Browser · Windows</span><span class="state state-test">Prototype</span></p>
+        <h1>Deadlight City</h1>
+        <p class="lede">
+          An offline open-world survival RPG set in one 4 km by 4 km city, with zombies, aliens and
+          demons. It runs in a browser tab or as a portable Windows app, with no game engine
+          underneath: plain JavaScript and three.js.
+        </p>
+      </header>
+
+      <div class="wrap case-hero">
+        <!-- Shares its view-transition-name with the card on the home page, so one grows into the other. -->
+        <div class="shot" style="view-transition-name: shot-deadlight-city">
+          <img src="../../assets/img/deadlight-horde.webp" width="1280" height="720" alt="Deadlight City at night in a storm: the player facing a horde, with a horde-night wave counter on the HUD" />
+        </div>
+      </div>
+
+      <section class="tier" aria-labelledby="order-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">01 · The order</p>
+            <h2 id="order-title">What it is.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              My first shot at the game that became
+              <a href="../multi-apocalypse/">Multi-Apocalypse</a>: one city, and more than one kind of
+              apocalypse in it.
+            </p>
+            <p>
+              It plays offline, in a browser tab or as a portable Windows app.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier tier-alt" aria-labelledby="prep-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">02 · Prep</p>
+            <h2 id="prep-title">No engine, and almost no asset files.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              There's no game engine under it. The city is generated from a seed, and the characters,
+              animation, sound effects and music are all generated at runtime instead of shipped as
+              files.
+            </p>
+            <p class="stack">JavaScript (ES modules) · three.js · Electron · Node · Blender Python</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier" aria-labelledby="cook-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">03 · The cook</p>
+            <h2 id="cook-title">The hard parts.</h2>
+          </div>
+          <div class="about-copy">
+            <dl class="figures">
+              <div><dt>City</dt><dd>4 × 4 km</dd></div>
+              <div><dt>Modules</dt><dd>61</dd></div>
+              <div><dt>Quality presets</dt><dd>4</dd></div>
+            </dl>
+            <ul class="notes">
+              <li>
+                <strong>A city that streams.</strong> The city is generated from a seed and streamed in
+                chunks, so a save only stores what you changed.
+              </li>
+              <li>
+                <strong>A rendering stack built by hand.</strong> Procedural sky, bloom, ambient
+                occlusion, depth of field and four quality presets.
+              </li>
+              <li>
+                <strong>Gates before features.</strong> Automated checks confirm that 61 modules have no
+                circular imports, that old saves still load, and that the packaged app boots.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier tier-alt" aria-labelledby="pass-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">04 · On the pass</p>
+            <h2 id="pass-title">Stopped as a prototype.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              Deadlight City runs and is playable, but frame pacing and visual polish were never
+              finished. There's no public build, and the source is private. The idea carried on into
+              Multi-Apocalypse.
+            </p>
+            <div class="links">
+              <a class="btn btn-primary" href="../multi-apocalypse/">What it led to</a>
+              <a class="btn" href="../../#deadlight">Back to the test kitchen</a>
+              <a class="btn" href="../survivor-forge/">Next: Survivor Forge</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <p>Taylar Abraham · plain HTML and CSS, no framework</p>
+        <p>
+          <a href="https://github.com/taylarabraham-bit" rel="noopener">github.com/taylarabraham-bit</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js" defer></script>
+  </body>
+</html>
