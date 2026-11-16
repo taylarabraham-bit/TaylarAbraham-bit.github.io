@@ -71,25 +71,25 @@
             </div>
           </div>
 
-          <!-- The order rail: one ticket per build, grouped by how done it is. -->
+          <!-- The rail: one ticket per project, in page order. -->
           <aside class="rail" aria-label="Project status at a glance">
             <p class="rail-title">The rail</p>
             <ul class="rail-list">
-              <li><a href="#codequest"><span class="dot dot-live"></span>CodeQuest<span class="rail-state">Shipped</span></a></li>
-              <li><a href="#money-manager"><span class="dot dot-live"></span>Money Manager<span class="rail-state">Live</span></a></li>
-              <li><a href="#multi-apocalypse"><span class="dot dot-fire"></span>Multi-Apocalypse<span class="rail-state">In production</span></a></li>
-              <li><a href="#irl-rpg"><span class="dot dot-fire"></span>IRL RPG family<span class="rail-state">Private beta</span></a></li>
-              <li><a href="#kitchen"><span class="dot dot-fire"></span>Kitchen site<span class="rail-state">In progress</span></a></li>
-              <li><a href="#deadlight"><span class="dot dot-test"></span>Deadlight City<span class="rail-state">Prototype</span></a></li>
-              <li><a href="#survivor-forge"><span class="dot dot-test"></span>Survivor Forge<span class="rail-state">Prototype</span></a></li>
-              <li><a href="#prep"><span class="dot dot-prep"></span>Jot + 5 more<span class="rail-state">Prep</span></a></li>
+              <li><a class="paper" href="#codequest"><span class="dot dot-live"></span>CodeQuest<span class="rail-state">Shipped</span></a></li>
+              <li><a class="paper" href="#money-manager"><span class="dot dot-live"></span>Money Manager<span class="rail-state">Live</span></a></li>
+              <li><a class="paper" href="#multi-apocalypse"><span class="dot dot-fire"></span>Multi-Apocalypse<span class="rail-state">In production</span></a></li>
+              <li><a class="paper" href="#irl-rpg"><span class="dot dot-fire"></span>IRL RPG family<span class="rail-state">Private beta</span></a></li>
+              <li><a class="paper" href="#kitchen"><span class="dot dot-fire"></span>Kitchen site<span class="rail-state">In progress</span></a></li>
+              <li><a class="paper" href="#deadlight"><span class="dot dot-test"></span>Deadlight City<span class="rail-state">Prototype</span></a></li>
+              <li><a class="paper" href="#survivor-forge"><span class="dot dot-test"></span>Survivor Forge<span class="rail-state">Prototype</span></a></li>
+              <li><a class="paper" href="#prep"><span class="dot dot-prep"></span>Jot + 5 more<span class="rail-state">Prep</span></a></li>
             </ul>
           </aside>
         </div>
       </section>
 
       <!-- ───────────── On the pass ───────────── -->
-      <section class="tier" id="work" aria-labelledby="pass-title">
+      <section class="tier tier-pass" id="work" aria-labelledby="pass-title">
         <div class="wrap">
           <header class="tier-head">
             <p class="eyebrow"><span class="dot dot-live"></span>On the pass</p>
@@ -106,7 +106,7 @@
               />
             </a>
             <div class="project-body">
-              <p class="ticket"><span>Coding game</span><span>Windows · Android</span><span class="state state-live">Shipped</span></p>
+              <p class="meta"><span>Coding game</span><span>Windows · Android</span><span class="state state-live">Shipped</span></p>
               <h3>CodeQuest</h3>
               <p class="pitch">
                 A coding game with lessons short enough to fit between other things. You read one
@@ -134,7 +134,7 @@
           </article>
 
           <article class="project project-flip" id="money-manager">
-            <div class="shot shot-type" aria-hidden="true">
+            <div class="shot shot-type paper" aria-hidden="true">
               <div class="ledger">
                 <p class="ledger-head">Settle-up · split in whole cents</p>
                 <p class="ledger-row"><span>Groceries</span><span>100.00</span></p>
@@ -145,7 +145,7 @@
               </div>
             </div>
             <div class="project-body">
-              <p class="ticket"><span>Household app</span><span>Web · Android</span><span class="state state-live">Live</span></p>
+              <p class="meta"><span>Household app</span><span>Web · Android</span><span class="state state-live">Live</span></p>
               <h3>Money Manager</h3>
               <p class="pitch">
                 An offline-first household budget: members, per-person budgets, goals, bills,
@@ -187,7 +187,7 @@
               <p class="shuffle-note">A different order every new game</p>
             </div>
             <div class="project-body">
-              <p class="ticket"><span>Open-world survival</span><span>PC</span><span class="state state-fire">In production</span></p>
+              <p class="meta"><span>Open-world survival</span><span>PC</span><span class="state state-fire">In production</span></p>
               <h3>Multi-Apocalypse <span class="aside">working title</span></h3>
               <p class="pitch">
                 A single-player, third-person survival game set in a small New Zealand town. Four
@@ -217,7 +217,7 @@
               </ul>
             </div>
             <div class="project-body">
-              <p class="ticket"><span>App family</span><span>Web · Android · Windows</span><span class="state state-fire">Private beta</span></p>
+              <p class="meta"><span>App family</span><span>Web · Android · Windows</span><span class="state state-fire">Private beta</span></p>
               <h3>IRL RPG</h3>
               <p class="pitch">
                 A real-life RPG for my household: budgeting, workouts, study, cooking and chores
@@ -251,7 +251,7 @@
               ></video>
             </a>
             <div class="project-body">
-              <p class="ticket"><span>Website</span><span>HTML + CSS</span><span class="state state-fire">In progress</span></p>
+              <p class="meta"><span>Website</span><span>HTML + CSS</span><span class="state state-fire">In progress</span></p>
               <h3>Plate Lunch to Plated Courses</h3>
               <p class="pitch">
                 The other half of the story: a site for the food. Dishes I've cooked, and a home for
@@ -286,7 +286,7 @@
               />
             </div>
             <div class="project-body">
-              <p class="ticket"><span>Survival RPG</span><span>Browser · Windows</span><span class="state state-test">Prototype</span></p>
+              <p class="meta"><span>Survival RPG</span><span>Browser · Windows</span><span class="state state-test">Prototype</span></p>
               <h3>Deadlight City</h3>
               <p class="pitch">
                 An offline open-world survival RPG set in one 4 km by 4 km city, with zombies,
@@ -317,7 +317,7 @@
               />
             </div>
             <div class="project-body">
-              <p class="ticket"><span>Game engine</span><span>Windows</span><span class="state state-test">Prototype</span></p>
+              <p class="meta"><span>Game engine</span><span>Windows</span><span class="state state-test">Prototype</span></p>
               <h3>Survivor Forge</h3>
               <p class="pitch">
                 A 3D game engine and editor written from scratch in C++20, to understand a survival
