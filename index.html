@@ -98,7 +98,7 @@
             <ul class="rail-list">
               <li style="--i: 0"><a class="paper" href="#codequest"><span class="dot dot-live"></span>CodeQuest<span class="rail-state">Shipped</span></a></li>
               <li style="--i: 1"><a class="paper" href="#money-manager"><span class="dot dot-live"></span>Money Manager<span class="rail-state">Live</span></a></li>
-              <li style="--i: 2"><a class="paper" href="#multi-apocalypse"><span class="dot dot-fire"></span>Multi-Apocalypse<span class="rail-state">In production</span></a></li>
+              <li style="--i: 2"><a class="paper" href="#multi-apocalypse"><span class="dot dot-fire"></span>Multi-Apocalypse<span class="rail-state">In production</span><span class="rail-special"><span class="stamp">Chef's special</span></span></a></li>
               <li style="--i: 3"><a class="paper" href="#irl-rpg"><span class="dot dot-fire"></span>IRL RPG family<span class="rail-state">Private beta</span></a></li>
               <li style="--i: 4"><a class="paper" href="#kitchen"><span class="dot dot-fire"></span>Kitchen site<span class="rail-state">In progress</span></a></li>
               <li style="--i: 5"><a class="paper" href="#deadlight"><span class="dot dot-test"></span>Deadlight City<span class="rail-state">Prototype</span></a></li>
@@ -197,7 +197,8 @@
             <h2 id="fire-title">Running and playable, still cooking.</h2>
           </header>
 
-          <article class="project" id="multi-apocalypse">
+          <!-- The chef's special: the one featured project (see GLOSSARY.md). -->
+          <article class="project special" id="multi-apocalypse">
             <div class="shot shot-type" aria-hidden="true">
               <ol class="shuffle">
                 <li>Zombies</li>
@@ -207,23 +208,33 @@
               </ol>
               <p class="shuffle-note">A different order every new game</p>
             </div>
-            <div class="project-body">
-              <p class="meta"><span>Open-world survival</span><span>PC</span><span class="state state-fire">In production</span></p>
-              <h3>Multi-Apocalypse <span class="aside">working title</span></h3>
-              <p class="pitch">
-                A single-player, third-person survival game set in a small New Zealand town. Four
-                apocalypses arrive one at a time, and the order is shuffled for every new game, so
-                you can't plan for the one you're in.
-              </p>
-              <ul class="notes">
-                <li>Companions, base building, crafting, cooking, stealth, weather, a day and night cycle, four mothership bosses and a UFO you can fly.</li>
-                <li>Roughly 190 gameplay scripts backed by a play-mode test suite that runs into the hundreds of files.</li>
-                <li>A 16-point release gate that blocks a build on placeholder assets, missing licence notices, story spoilers in text, or any test that hasn't passed since the last change.</li>
-                <li>A scripted audio pipeline: effects are synthesised in code and the whole mix is audited against loudness targets.</li>
-                <li>358 scripted dialogue lines, about 47 minutes, generated offline and keyed to subtitles.</li>
-              </ul>
-              <p class="stack">Unity 6 (URP) · C# · Python tooling · Blender · Cinemachine</p>
-              <div class="links"><span class="private">Source is private</span></div>
+            <div class="special-cols">
+              <div class="project-body">
+                <p class="meta"><span class="stamp">Chef's special</span><span>Open-world survival</span><span>PC</span><span class="state state-fire">In production</span></p>
+                <h3>Multi-Apocalypse <span class="aside">working title</span></h3>
+                <p class="pitch">
+                  A single-player, third-person survival game set in a small New Zealand town. Four
+                  apocalypses arrive one at a time, and the order is shuffled for every new game, so
+                  you can't plan for the one you're in.
+                </p>
+                <p class="lineage-title">How it got here</p>
+                <ol class="lineage">
+                  <li><a href="#deadlight">Deadlight City</a><span>Browser prototype</span></li>
+                  <li><a href="#survivor-forge">Survivor Forge</a><span>Engine prototype</span></li>
+                  <li aria-current="true"><strong>Multi-Apocalypse</strong><span>The game, in Unity</span></li>
+                </ol>
+              </div>
+              <div class="project-body">
+                <ul class="notes">
+                  <li>Companions, base building, crafting, cooking, stealth, weather, a day and night cycle, four mothership bosses and a UFO you can fly.</li>
+                  <li>Roughly 190 gameplay scripts backed by a play-mode test suite that runs into the hundreds of files.</li>
+                  <li>A 16-point release gate that blocks a build on placeholder assets, missing licence notices, story spoilers in text, or any test that hasn't passed since the last change.</li>
+                  <li>A scripted audio pipeline: effects are synthesised in code and the whole mix is audited against loudness targets.</li>
+                  <li>358 scripted dialogue lines, about 47 minutes, generated offline and keyed to subtitles.</li>
+                </ul>
+                <p class="stack">Unity 6 (URP) · C# · Python tooling · Blender · Cinemachine</p>
+                <div class="links"><span class="private">Source is private</span></div>
+              </div>
             </div>
           </article>
 

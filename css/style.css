@@ -508,6 +508,27 @@ ol {
   color: var(--muted);
   white-space: nowrap;
 }
+/* the chef's special ticket carries its stamp on a second line */
+.rail-list a {
+  flex-wrap: wrap;
+}
+.rail-special {
+  flex-basis: 100%;
+  padding-left: 1.125rem;
+}
+
+/* A rubber stamp, slightly crooked */
+.stamp {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  color: var(--fire);
+  font: 700 0.6875rem var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  rotate: -3deg;
+}
 
 /* ── Tiers ──────────────────────────────────────────── */
 
@@ -584,6 +605,101 @@ ol {
 
 .project-flip .shot {
   order: 2;
+}
+
+/* The chef's special: the one featured project. Full width, on its own panel,
+   with the four apocalypses across the top and the copy in two columns under them. */
+.special {
+  grid-template-columns: minmax(0, 1fr);
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.special .shot {
+  position: static;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.special .shuffle {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.special .shuffle li {
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  min-height: clamp(7rem, 14vw, 11rem);
+  border-top: 3px solid var(--tone);
+  font-size: clamp(1.125rem, 2.4vw, 1.75rem);
+}
+.special .shuffle li::before {
+  color: var(--tone);
+}
+.special .shuffle li:nth-child(1) {
+  --tone: var(--live);
+}
+.special .shuffle li:nth-child(2) {
+  --tone: var(--test);
+}
+.special .shuffle li:nth-child(3) {
+  --tone: var(--accent);
+}
+.special .shuffle li:nth-child(4) {
+  --tone: var(--fire);
+}
+.special-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+.special h3 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+}
+
+/* Lineage: the test-kitchen projects that led to the chef's special, in order */
+.lineage-title {
+  margin-top: 0.5rem;
+  font: 600 0.75rem var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lineage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+/* each step: an arrow in column 1 (none on the first), name over caption in column 2 */
+.lineage li {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.lineage li > * {
+  grid-column: 2;
+}
+.lineage li + li::before {
+  content: '→';
+  grid-row: 1 / span 2;
+  align-self: center;
+  padding-inline: 0.625rem;
+  color: var(--muted);
+}
+.lineage a,
+.lineage strong {
+  font-weight: 600;
+}
+.lineage a {
+  text-decoration-color: var(--test);
+  text-underline-offset: 0.2em;
+}
+.lineage span {
+  color: var(--muted);
 }
 
 .shot {
@@ -927,6 +1043,12 @@ ol {
   }
   .shot-type {
     min-height: 0;
+  }
+  .special-cols {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .special .shuffle {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
