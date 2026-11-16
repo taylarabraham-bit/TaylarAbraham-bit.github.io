@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeQuest — case study — Taylar Abraham</title>
+    <meta name="description" content="How CodeQuest was built: a coding game for Windows and Android with 705 two-minute lessons, graded offline with no account." />
+    <meta property="og:title" content="CodeQuest — case study" />
+    <meta property="og:description" content="How CodeQuest was built: a coding game for Windows and Android with 705 two-minute lessons, graded offline with no account." />
+    <meta property="og:image" content="https://taylarabraham-bit.github.io/assets/img/codequest-hero.webp" />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script>
+      // Apply a saved theme before first paint so the page never flashes.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+      // Scripts are on: the ticket machine can fold into a menu button on small screens.
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#top">Skip to the case study</a>
+
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="../../" aria-label="Taylar Abraham, home">
+          <span class="brand-mark" aria-hidden="true">TA</span>
+          <span class="brand-name">Taylar Abraham</span>
+        </a>
+        <!-- The ticket machine: here every key leads back to a section of the home page. -->
+        <nav class="machine" id="machine" aria-label="Main">
+          <button class="machine-toggle" type="button" aria-expanded="false" aria-controls="machine-roll">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6" /><rect x="3" y="9" width="18" height="8" rx="2" /><path d="M7 14h10v7H7z" /></svg>
+            Menu
+          </button>
+          <ul class="machine-roll" id="machine-roll">
+            <li><a href="../../#work">On the pass</a></li>
+            <li><a href="../../#fire">On the fire</a></li>
+            <li><a href="../../#test-kitchen">Test kitchen</a></li>
+            <li><a href="../../#prep">Prep list</a></li>
+            <li><a href="../../#about">About</a></li>
+            <li><a href="../../Projects/KitchenSite/">Kitchen</a></li>
+          </ul>
+        </nav>
+        <button class="icon-btn" id="sound-toggle" type="button" aria-pressed="false" aria-label="Printer sound">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path class="sound-on" d="M16.5 8.5a5 5 0 0 1 0 7" /><path class="sound-off" d="m17 9 5 6m0-6-5 6" /></svg>
+        </button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <span aria-hidden="true" class="theme-icon"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <header class="wrap case-head">
+        <a class="back" href="../../#codequest">← Back to the pass</a>
+        <p class="meta"><span>Coding game</span><span>Windows · Android</span><span class="state state-live">Shipped</span></p>
+        <h1>CodeQuest</h1>
+        <p class="lede">
+          A coding game with lessons short enough to fit between other things. You read one idea,
+          then type it straight away, earning XP, streaks and badges. No account, no setup, works
+          offline.
+        </p>
+      </header>
+
+      <div class="wrap case-hero">
+        <!-- Shares its view-transition-name with the card on the home page, so one grows into the other. -->
+        <div class="shot" style="view-transition-name: shot-codequest">
+          <img src="../../assets/img/codequest-hero.webp" width="1280" height="720" alt="CodeQuest running on a laptop and a phone" />
+        </div>
+      </div>
+
+      <section class="tier" aria-labelledby="order-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">01 · The order</p>
+            <h2 id="order-title">What it is.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              Stop watching tutorials, type real code and get told straight away whether it's right.
+              Each lesson takes about two minutes: one concept card, then seven hands-on exercises.
+            </p>
+            <p>
+              You practise five ways: fill in the blank, build the code, put lines in order, find and fix
+              the bug, and type a line. A wrong answer gets a hint. A second miss shows the answer,
+              explains it, and puts the question in a review queue spaced over 1, 3 and 7 days.
+            </p>
+            <p>
+              Every unit ends with a 10-question boss. Clear a track and its 20-question final exam
+              unlocks; get 17 right and you earn the certificate.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier tier-alt" aria-labelledby="prep-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">02 · Prep</p>
+            <h2 id="prep-title">Two editions: one to type on, one to tap.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              <strong>Desktop</strong> is a Windows app built for a keyboard, with screens styled like
+              the tools you'd use on the job: a three-pane Instructions / Code / Output layout, 1,410
+              extra write-the-code challenges, and 14 tool tours on mock versions of VS Code, Visual
+              Studio, browser DevTools, Docker Desktop and Windows Terminal.
+            </p>
+            <p>
+              <strong>Mobile</strong> is the same lessons on Android, made for one thumb: tap to answer.
+            </p>
+            <p>
+              Neither needs Docker, .NET or Ollama installed. The editors and terminals are built into
+              the app, and it checks your answers itself.
+            </p>
+            <p class="stack">React 18 · TypeScript · Vite · Electron · Capacitor · Vitest · Playwright · GitHub Actions</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier" aria-labelledby="cook-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">03 · The cook</p>
+            <h2 id="cook-title">The hard parts.</h2>
+          </div>
+          <div class="about-copy">
+            <dl class="figures">
+              <div><dt>Tracks</dt><dd>7</dd></div>
+              <div><dt>Units</dt><dd>141</dd></div>
+              <div><dt>Lessons</dt><dd>705</dd></div>
+              <div><dt>Exercises</dt><dd>7,755</dd></div>
+            </dl>
+            <ul class="notes">
+              <li>
+                <strong>7,755 answers that all have to be right.</strong> Every exercise's answer is
+                checked against the grader in the test suite, so a lesson can't ship with an answer the
+                app would mark wrong.
+              </li>
+              <li>
+                <strong>Played end to end by a script.</strong> Scripted browser runs play each lesson,
+                boss and exam from start to finish.
+              </li>
+              <li>
+                <strong>Seven technologies, nothing to install.</strong> HTML and CSS render in a live
+                preview and the other tracks show the program's output, all inside the app.
+              </li>
+              <li>
+                <strong>Every push is a release candidate.</strong> A push to main lints, typechecks,
+                tests, builds the Android APK and the Windows .exe, and publishes a release.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier tier-alt" aria-labelledby="pass-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">04 · On the pass</p>
+            <h2 id="pass-title">Released. You can run it today.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              CodeQuest is out for 64-bit Windows and Android 7 or newer. The Windows edition runs from
+              a single file with nothing to install. There's no iPhone or Mac version.
+            </p>
+            <div class="links">
+              <a class="btn btn-primary" href="https://github.com/taylarabraham-bit/codequest-app/releases/latest" rel="noopener">Download</a>
+              <a class="btn" href="https://github.com/taylarabraham-bit/codequest-app" rel="noopener">Source</a>
+              <a class="btn" href="../../#codequest">Back to the pass</a>
+              <a class="btn" href="../money-manager/">Next: Money Manager</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <p>Taylar Abraham · plain HTML and CSS, no framework</p>
+        <p>
+          <a href="https://github.com/taylarabraham-bit" rel="noopener">github.com/taylarabraham-bit</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js" defer></script>
+  </body>
+</html>
