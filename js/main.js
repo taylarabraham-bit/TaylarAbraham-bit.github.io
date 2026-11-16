@@ -111,7 +111,8 @@ if (machine) {
     const link = e.target.closest('a');
     if (!link) return;
     if (narrow.matches) setOpen(false);
-    else if (link.hash && !reduceMotion) print(link.textContent);
+    // print only for a section of this page; a key that leaves the page just navigates
+    else if (link.hash && link.pathname === location.pathname && !reduceMotion) print(link.textContent);
   });
 }
 

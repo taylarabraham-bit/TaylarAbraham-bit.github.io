@@ -216,3 +216,10 @@ video {
     scroll-behavior: auto;
   }
 }
+
+/* Cross-fade when moving between this site and the portfolio (which opts in too). */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}

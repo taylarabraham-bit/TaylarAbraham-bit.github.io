@@ -8,8 +8,9 @@ Plain HTML, CSS and JavaScript. No build step: GitHub Pages serves the files as 
 | --- | --- |
 | `index.html` | The portfolio home page |
 | `css/style.css` | All styles for the home page and 404 page (colours and fonts are the variables at the top) |
-| `js/main.js` | Theme toggle and lazy-loaded video |
+| `js/main.js` | Ticket machine, theme toggle and lazy-loaded video |
 | `assets/img/` | Project screenshots |
+| `work/<name>/` | One case-study page per project |
 | `Projects/KitchenSite/` | Plate Lunch to Plated Courses, the kitchen site |
 | `GLOSSARY.md` | What the kitchen words mean on this site (rail, ticket, tiers) |
 
