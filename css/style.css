@@ -214,24 +214,122 @@ ol {
   border-radius: var(--radius);
 }
 
-.site-nav {
+/* ── Ticket machine: the main navigation ────────────── */
+
+.machine {
+  position: relative;
+  align-self: stretch;
   display: flex;
-  gap: 1.25rem;
+  align-items: center;
   margin-left: auto;
-  font-size: 0.9375rem;
+}
+/* the slot tickets feed out of, cut into the header's bottom edge */
+.machine::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 11rem;
+  height: 3px;
+  background: rgb(0 0 0 / 0.6);
+  border-radius: 2px 2px 0 0;
 }
 
-.site-nav a {
+.machine-roll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.375rem;
+}
+
+/* the machine's keys */
+.machine-roll a,
+.machine-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.625rem;
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.1), rgb(0 0 0 / 0.08));
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.35);
+  color: inherit;
+  font: 600 0.75rem var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   text-decoration: none;
-  padding-block: 0.5rem;
+  white-space: nowrap;
+  cursor: pointer;
 }
-.site-nav a:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 0.3em;
+.machine-roll a:hover,
+.machine-toggle:hover {
+  border-color: var(--accent);
+}
+.machine-roll a:active,
+.machine-toggle:active {
+  translate: 0 1px;
+  box-shadow: none;
+}
+.machine-toggle {
+  display: none;
+  min-height: 2.25rem;
 }
 
-.theme-toggle {
+/* A printed ticket: feeds out of the slot in steps, hangs, then drops away */
+.printout {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 11rem;
+  /* clip only the top, so the paper appears to come out of the slot */
+  clip-path: inset(0 -2rem -6rem -2rem);
+  filter: drop-shadow(0 3px 3px rgb(0 0 0 / 0.35));
+  pointer-events: none;
+}
+.printout .paper {
+  padding: 0.625rem 0.875rem calc(0.625rem + var(--tooth));
+  font: 600 0.75rem/1.5 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  animation: feed 2.2s forwards;
+}
+.printout small {
+  display: block;
+  font: inherit;
+  font-weight: 400;
+  color: var(--muted);
+}
+@keyframes feed {
+  0% {
+    translate: 0 -100%;
+    animation-timing-function: steps(9);
+  }
+  20%,
+  80% {
+    translate: 0 0;
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    translate: 0 2.5rem;
+    rotate: 5deg;
+    opacity: 0;
+  }
+}
+
+/* Paper feeding out of a slot at its own top edge: slide down while the clip opens */
+@keyframes print {
+  from {
+    translate: 0 -100%;
+    clip-path: inset(100% -1rem -1rem -1rem);
+  }
+  to {
+    translate: 0 0;
+    clip-path: inset(0 -1rem -1rem -1rem);
+  }
+}
+
+.icon-btn {
   display: grid;
   place-items: center;
   width: 2.25rem;
@@ -242,8 +340,12 @@ ol {
   color: var(--fg);
   cursor: pointer;
 }
-.theme-toggle:hover {
+.icon-btn:hover {
   border-color: var(--accent);
+}
+#sound-toggle[aria-pressed='true'] .sound-off,
+#sound-toggle[aria-pressed='false'] .sound-on {
+  display: none;
 }
 /* half-filled disc: reads as "switch" in either theme */
 .theme-icon {
@@ -383,6 +485,14 @@ ol {
 .rail-list li:hover,
 .rail-list li:focus-within {
   transform: translateX(0.375rem);
+}
+/* shortcut: prints on page load, so a phone visitor may scroll down to a finished rail;
+   upgrade to print-when-in-view if that matters */
+@media (prefers-reduced-motion: no-preference) {
+  .print-rail .rail-list li {
+    animation: print 300ms steps(6) backwards;
+    animation-delay: calc(400ms + var(--i) * 150ms);
+  }
 }
 
 .rail-list a {
@@ -824,13 +934,55 @@ ol {
   .brand-name {
     display: none;
   }
-  .site-nav {
-    gap: 0.875rem;
-    font-size: 0.875rem;
-    overflow-x: auto;
+}
+
+/* Below this width the keys no longer fit, so the machine folds into a Menu button
+   that prints one long ticket listing every section. Needs script; without it the keys wrap.
+   The same width is in js/main.js. */
+@media (max-width: 62rem) {
+  /* hang the long ticket from the header's edge, not from the Menu button */
+  .js .machine {
+    position: static;
   }
-  .site-nav a {
-    white-space: nowrap;
+  .js .machine::after,
+  .js .machine.open .machine-roll {
+    right: 1.25rem;
+    width: min(16rem, calc(100vw - 2.5rem));
+  }
+  .js .machine-toggle {
+    display: flex;
+  }
+  .js .machine-roll {
+    display: none;
+  }
+  .js .machine.open .machine-roll {
+    position: absolute;
+    top: 100%;
+    display: grid;
+    justify-content: normal;
+    padding-bottom: var(--tooth);
+  }
+  .js .machine-roll::before {
+    content: 'Order up · where to?';
+    padding: 0.75rem 1rem;
+    font: 400 0.75rem var(--mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .js .machine-roll a {
+    padding: 0.875rem 1rem;
+    border: 0;
+    border-top: 1px dashed var(--line);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    font-size: 0.8125rem;
+  }
+}
+@media (max-width: 62rem) and (prefers-reduced-motion: no-preference) {
+  .js .machine.open .machine-roll {
+    animation: print 350ms steps(10) backwards;
   }
 }
 
