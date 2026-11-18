@@ -1083,6 +1083,19 @@ ol {
   }
 }
 
+/* Each card's order ticket: a slip of the same paper as its ticket on the rail, numbered in rail order */
+.order {
+  justify-self: start;
+  padding: 0.25rem 0.75rem calc(0.25rem + var(--tooth));
+  font: 600 0.75rem var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-1.5deg);
+}
+.order b {
+  color: var(--fire);
+}
+
 .project-body {
   display: grid;
   gap: 1.125rem;
