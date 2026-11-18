@@ -632,9 +632,6 @@ ol {
 .special .shot {
   position: static;
   min-height: 0;
-  padding: 0;
-  border: 0;
-  background: none;
 }
 .special .shuffle {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -721,18 +718,20 @@ ol {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
+  /* the shared frame: every picture sits in the same steel rim, like a plate on the pass */
+  box-shadow:
+    0 0 0 0.375rem var(--steel-lo),
+    0 0 0 calc(0.375rem + 1px) var(--line),
+    0 1rem 2rem rgb(0 0 0 / 0.3);
 }
 .shot img,
 .shot video {
   width: 100%;
 }
 
-/* A stand-in printed on paper reads as a receipt: no frame, extra room for the torn edge */
-.shot-type.paper {
-  background: var(--paper); /* .shot's surface would otherwise win over .paper */
-  border: 0;
-  border-radius: 0;
-  padding-bottom: calc(clamp(1.25rem, 3vw, 2rem) + var(--tooth));
+/* A receipt hanging inside the frame: extra room at the bottom for the torn edge */
+.ledger.paper {
+  padding: 1.25rem 1.25rem calc(1.25rem + var(--tooth));
 }
 
 /* The home server's JARVIS screen: always dark, like the real monitor. Sample values only. */
