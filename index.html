@@ -60,7 +60,6 @@
             <li><a href="#work">On the pass</a></li>
             <li><a href="#fire">On the fire</a></li>
             <li><a href="#test-kitchen">Test kitchen</a></li>
-            <li><a href="#prep">Prep list</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="Projects/KitchenSite/">Kitchen</a></li>
           </ul>
@@ -98,13 +97,13 @@
             <ul class="rail-list">
               <li style="--i: 0"><a class="paper" href="#codequest"><span class="dot dot-live"></span>CodeQuest<span class="rail-state">Shipped</span></a></li>
               <li style="--i: 1"><a class="paper" href="#money-manager"><span class="dot dot-live"></span>Money Manager<span class="rail-state">Live</span></a></li>
-              <li style="--i: 2"><a class="paper" href="#multi-apocalypse"><span class="dot dot-fire"></span>Multi-Apocalypse<span class="rail-state">In production</span><span class="rail-special"><span class="stamp">Chef's special</span></span></a></li>
-              <li style="--i: 3"><a class="paper" href="#irl-rpg"><span class="dot dot-fire"></span>IRL RPG family<span class="rail-state">Private beta</span></a></li>
-              <li style="--i: 4"><a class="paper" href="#kitchen"><span class="dot dot-fire"></span>Kitchen site<span class="rail-state">In progress</span></a></li>
-              <li style="--i: 5"><a class="paper" href="#home-server"><span class="dot dot-fire"></span>Home server<span class="rail-state">Always on</span></a></li>
-              <li style="--i: 6"><a class="paper" href="#deadlight"><span class="dot dot-test"></span>Deadlight City<span class="rail-state">Prototype</span></a></li>
-              <li style="--i: 7"><a class="paper" href="#survivor-forge"><span class="dot dot-test"></span>Survivor Forge<span class="rail-state">Prototype</span></a></li>
-              <li style="--i: 8"><a class="paper" href="#prep"><span class="dot dot-prep"></span>Jot<span class="rail-state">Prep</span></a></li>
+              <li style="--i: 2"><a class="paper" href="#jot"><span class="dot dot-live"></span>Jot<span class="rail-state">In daily use</span></a></li>
+              <li style="--i: 3"><a class="paper" href="#multi-apocalypse"><span class="dot dot-fire"></span>Multi-Apocalypse<span class="rail-state">In production</span><span class="rail-special"><span class="stamp">Chef's special</span></span></a></li>
+              <li style="--i: 4"><a class="paper" href="#irl-rpg"><span class="dot dot-fire"></span>IRL RPG family<span class="rail-state">Private beta</span></a></li>
+              <li style="--i: 5"><a class="paper" href="#kitchen"><span class="dot dot-fire"></span>Kitchen site<span class="rail-state">In progress</span></a></li>
+              <li style="--i: 6"><a class="paper" href="#home-server"><span class="dot dot-fire"></span>Home server<span class="rail-state">Always on</span></a></li>
+              <li style="--i: 7"><a class="paper" href="#deadlight"><span class="dot dot-test"></span>Deadlight City<span class="rail-state">Prototype</span></a></li>
+              <li style="--i: 8"><a class="paper" href="#survivor-forge"><span class="dot dot-test"></span>Survivor Forge<span class="rail-state">Prototype</span></a></li>
             </ul>
           </aside>
         </div>
@@ -185,6 +184,44 @@
               <div class="links">
                 <a class="btn btn-primary" href="https://taylarabraham-bit.github.io/budget-app-money-manager/" rel="noopener">Open the app</a>
                 <a class="btn" href="work/money-manager/">Case study</a>
+                <span class="private">Source is private</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project" id="jot">
+            <!-- Made-up sample meeting in Jot's own dark theme: no real notes. -->
+            <div class="shot shot-type jot" style="view-transition-name: shot-jot" aria-hidden="true">
+              <p class="jot-head"><span>Design review</span><span>Sample note</span></p>
+              <p class="jot-modes"><span>Claude</span><span class="on">Local</span><span>Private</span></p>
+              <p class="jot-label">Summary</p>
+              <ul class="jot-summary">
+                <li>Ship the tray reminder in the next build.</li>
+                <li>Onboarding copy is due Thursday.</li>
+              </ul>
+              <p class="jot-label">Transcript</p>
+              <ul class="jot-transcript">
+                <li class="jot-me"><b>Me</b>Can we ship the tray reminder this week?</li>
+                <li><b>Others</b>Yes, if the copy is ready by Thursday.</li>
+              </ul>
+            </div>
+            <div class="project-body">
+              <p class="meta"><span>Meeting notes</span><span>Windows · Android</span><span class="state state-live">In daily use</span></p>
+              <h3>Jot</h3>
+              <p class="pitch">
+                Private AI meeting notes for my laptop and phone. It records a meeting, transcribes it
+                on my own machine, and writes the summary with Claude or a local model, chosen per
+                meeting. Notes sync through my home server, so they're on my phone when the meeting ends.
+              </p>
+              <ul class="notes">
+                <li>Private mode keeps chosen meetings, documents and photos in an encrypted vault on the laptop only. Photos from the phone pass through the server as sealed files it can't open.</li>
+                <li>Speaker labels: the mic and the system audio are transcribed separately, so my words and everyone else's stay apart.</li>
+                <li>Whisper runs on the laptop's graphics card through Vulkan: a 207-second test clip took 15 seconds instead of 73 on the CPU.</li>
+                <li>Sanitize makes a shareable copy of a private document, with names swapped for labels like [Company 1].</li>
+                <li>Hundreds of tests across the Rust core, the server and both apps, with Claude mocked so no test calls the real API.</li>
+              </ul>
+              <p class="stack">Tauri 2 · Rust · React · TypeScript · Expo (React Native) · Fastify · Docker · Whisper · Claude API</p>
+              <div class="links">
                 <span class="private">Source is private</span>
               </div>
             </div>
@@ -437,29 +474,8 @@
         </div>
       </section>
 
-      <!-- ───────────── Prep list ───────────── -->
-      <section class="tier tier-alt" id="prep" aria-labelledby="prep-title">
-        <div class="wrap">
-          <header class="tier-head">
-            <p class="eyebrow"><span class="dot dot-prep"></span>Prep list</p>
-            <h2 id="prep-title">Planned. Not started, or barely.</h2>
-          </header>
-          <ul class="prep-grid">
-            <li class="prep prep-lead">
-              <h3>Jot</h3>
-              <p>
-                A self-hosted note-taking app that syncs across my own devices. The idea is a
-                privacy split: everyday notes can use a cloud model, and anything sensitive is
-                transcribed by a model running locally.
-              </p>
-              <p class="prep-state">Designed, not built</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
       <!-- ───────────── About ───────────── -->
-      <section class="tier" id="about" aria-labelledby="about-title">
+      <section class="tier tier-alt" id="about" aria-labelledby="about-title">
         <div class="wrap about-grid">
           <div>
             <p class="eyebrow">About</p>
