@@ -734,6 +734,125 @@ ol {
   padding-bottom: calc(clamp(1.25rem, 3vw, 2rem) + var(--tooth));
 }
 
+/* The home server's JARVIS screen: always dark, like the real monitor. Sample values only. */
+.shot-type.jarvis {
+  --hud: #3fe0ff;
+  --hud-dim: #7fa9b8;
+  --hud-line: #12404f;
+  align-content: start;
+  gap: 1rem;
+  border-color: var(--hud-line);
+  background: radial-gradient(120% 80% at 50% 0%, #0b2733, #06131a 70%);
+  color: #e6faff;
+  font-size: 0.8125rem;
+}
+.jarvis-head,
+.jarvis-bars li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.jarvis-head {
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hud-dim);
+}
+.jarvis-head span:first-child {
+  color: var(--hud);
+}
+.jarvis-banner {
+  display: grid;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--hud-line);
+  border-left: 3px solid var(--hud);
+  font-family: var(--display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--hud);
+  text-shadow: 0 0 12px rgb(63 224 255 / 0.45);
+}
+.jarvis-banner span {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  text-shadow: none;
+  color: var(--hud-dim);
+}
+.jarvis-grid {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1.25rem;
+}
+/* conic ring filled to --v percent */
+.jarvis-ring {
+  display: grid;
+  place-content: center;
+  width: 7rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  text-align: center;
+  background:
+    radial-gradient(closest-side, #06131a 78%, transparent 80%),
+    conic-gradient(var(--hud) calc(var(--v) * 1%), var(--hud-line) 0);
+}
+.jarvis-ring strong {
+  font-family: var(--display);
+  font-size: 1.625rem;
+  color: #fff;
+}
+.jarvis-ring span,
+.jarvis-bars span:first-child {
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hud-dim);
+}
+.jarvis-bars {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+.jarvis-bars li {
+  flex-wrap: wrap;
+  font-variant-numeric: tabular-nums;
+}
+/* the bar under each row, filled to --v percent */
+.jarvis-bars li::after {
+  content: '';
+  flex-basis: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--hud) calc(var(--v) * 1%), var(--hud-line) 0);
+}
+.jarvis-services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.375rem 1rem;
+  padding: 0.75rem 0 0;
+  border-top: 1px solid var(--hud-line);
+  list-style: none;
+}
+.jarvis-services li::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: #4dffa6;
+  box-shadow: 0 0 6px #4dffa6;
+}
+.jarvis-services li::after {
+  content: ' · up';
+  color: var(--hud-dim);
+}
+
 /* Typographic stand-ins where there is no screenshot to show yet */
 .shot-type {
   display: grid;
