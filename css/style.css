@@ -637,14 +637,23 @@ ol {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .special .shuffle li {
-  flex-direction: column-reverse;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.375rem;
   min-height: clamp(7rem, 14vw, 11rem);
   border-top: 3px solid var(--tone);
   font-size: clamp(1.125rem, 2.4vw, 1.75rem);
 }
-.special .shuffle li::before {
+/* each tile: its place in the order, the apocalypse, and the store page's first sign of it */
+.shuffle .wave {
+  font: 600 0.6875rem var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--tone);
+}
+.shuffle .omen {
+  margin-top: auto;
+  font: 400 0.875rem/1.4 var(--body);
+  color: var(--muted);
 }
 .special .shuffle li:nth-child(1) {
   --tone: var(--live);
@@ -975,11 +984,6 @@ ol {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   font: 700 1.25rem var(--display);
-}
-.shuffle li::before {
-  content: '?';
-  color: var(--fire);
-  font-family: var(--mono);
 }
 
 /* IRL RPG's Mythic Guide, in the app's own forge look: always dark gold and leather */
