@@ -101,9 +101,10 @@
               <li style="--i: 2"><a class="paper" href="#multi-apocalypse"><span class="dot dot-fire"></span>Multi-Apocalypse<span class="rail-state">In production</span><span class="rail-special"><span class="stamp">Chef's special</span></span></a></li>
               <li style="--i: 3"><a class="paper" href="#irl-rpg"><span class="dot dot-fire"></span>IRL RPG family<span class="rail-state">Private beta</span></a></li>
               <li style="--i: 4"><a class="paper" href="#kitchen"><span class="dot dot-fire"></span>Kitchen site<span class="rail-state">In progress</span></a></li>
-              <li style="--i: 5"><a class="paper" href="#deadlight"><span class="dot dot-test"></span>Deadlight City<span class="rail-state">Prototype</span></a></li>
-              <li style="--i: 6"><a class="paper" href="#survivor-forge"><span class="dot dot-test"></span>Survivor Forge<span class="rail-state">Prototype</span></a></li>
-              <li style="--i: 7"><a class="paper" href="#prep"><span class="dot dot-prep"></span>Jot + 5 more<span class="rail-state">Prep</span></a></li>
+              <li style="--i: 5"><a class="paper" href="#home-server"><span class="dot dot-fire"></span>Home server<span class="rail-state">Always on</span></a></li>
+              <li style="--i: 6"><a class="paper" href="#deadlight"><span class="dot dot-test"></span>Deadlight City<span class="rail-state">Prototype</span></a></li>
+              <li style="--i: 7"><a class="paper" href="#survivor-forge"><span class="dot dot-test"></span>Survivor Forge<span class="rail-state">Prototype</span></a></li>
+              <li style="--i: 8"><a class="paper" href="#prep"><span class="dot dot-prep"></span>Jot + 5 more<span class="rail-state">Prep</span></a></li>
             </ul>
           </aside>
         </div>
@@ -300,6 +301,41 @@
               <p class="stack">HTML · CSS · JavaScript, no framework</p>
               <div class="links">
                 <a class="btn btn-primary" href="Projects/KitchenSite/">Visit the kitchen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project project-flip" id="home-server">
+            <!-- Made-up sample values: nothing here comes from the real server. -->
+            <div class="shot shot-type" style="view-transition-name: shot-home-server" aria-hidden="true">
+              <div class="ledger">
+                <p class="ledger-head">JARVIS · sample readout, not live</p>
+                <p class="ledger-row"><span>CPU</span><span>21%</span></p>
+                <p class="ledger-row"><span>Memory</span><span>48%</span></p>
+                <p class="ledger-row"><span>Disk</span><span>63%</span></p>
+                <p class="ledger-row sub"><span>Plex</span><span>up</span></p>
+                <p class="ledger-row sub"><span>Supabase</span><span>up</span></p>
+                <p class="ledger-row sub"><span>Backups</span><span>running</span></p>
+                <p class="ledger-row total"><span>"All systems nominal."</span><span>ask</span></p>
+              </div>
+            </div>
+            <div class="project-body">
+              <p class="meta"><span>Homelab</span><span>Self-hosted</span><span class="state state-fire">Always on</span></p>
+              <h3>Home server + JARVIS</h3>
+              <p class="pitch">
+                A refurbished small office PC that runs my household's apps around the clock, with
+                JARVIS, my own dashboard, on top: one screen for the whole box, and an assistant I
+                can just ask.
+              </p>
+              <ul class="notes">
+                <li>Server health at a glance: CPU, memory, disk, temperature and uptime.</li>
+                <li>Service status for every app and container, so I can see what's down before anyone in the house notices.</li>
+                <li>A launcher with a tile for each self-hosted app.</li>
+                <li>A voice and chat assistant that answers questions about the server.</li>
+              </ul>
+              <p class="stack">Docker · Tailscale · Plex · Supabase</p>
+              <div class="links">
+                <span class="private">Dashboard is private · sample values shown</span>
               </div>
             </div>
           </article>
