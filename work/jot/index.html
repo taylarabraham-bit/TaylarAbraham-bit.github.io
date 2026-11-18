@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jot — case study — Taylar Abraham</title>
+    <meta name="description" content="How Jot was built: private AI meeting notes for a laptop and phone, transcribed locally, with an encrypted vault for private meetings." />
+    <meta property="og:title" content="Jot — case study" />
+    <meta property="og:description" content="How Jot was built: private AI meeting notes for a laptop and phone, transcribed locally, with an encrypted vault for private meetings." />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script>
+      // Apply a saved theme before first paint so the page never flashes.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+      // Scripts are on: the ticket machine can fold into a menu button on small screens.
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#top">Skip to the case study</a>
+
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="../../" aria-label="Taylar Abraham, home">
+          <span class="brand-mark" aria-hidden="true">TA</span>
+          <span class="brand-name">Taylar Abraham</span>
+        </a>
+        <!-- The ticket machine: here every key leads back to a section of the home page. -->
+        <nav class="machine" id="machine" aria-label="Main">
+          <button class="machine-toggle" type="button" aria-expanded="false" aria-controls="machine-roll">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6" /><rect x="3" y="9" width="18" height="8" rx="2" /><path d="M7 14h10v7H7z" /></svg>
+            Menu
+          </button>
+          <ul class="machine-roll" id="machine-roll">
+            <li><a href="../../#work">On the pass</a></li>
+            <li><a href="../../#fire">On the fire</a></li>
+            <li><a href="../../#test-kitchen">Test kitchen</a></li>
+            <li><a href="../../#about">About</a></li>
+            <li><a href="../../Projects/KitchenSite/">Kitchen</a></li>
+          </ul>
+        </nav>
+        <button class="icon-btn" id="sound-toggle" type="button" aria-pressed="false" aria-label="Printer sound">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path class="sound-on" d="M16.5 8.5a5 5 0 0 1 0 7" /><path class="sound-off" d="m17 9 5 6m0-6-5 6" /></svg>
+        </button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <span aria-hidden="true" class="theme-icon"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <header class="wrap case-head">
+        <a class="back" href="../../#jot">← Back to the pass</a>
+        <p class="meta"><span>Meeting notes</span><span>Windows · Android</span><span class="state state-live">In daily use</span></p>
+        <h1>Jot</h1>
+        <p class="lede">
+          Private AI meeting notes for my laptop and phone. It records a meeting, transcribes it on my
+          own machine, and writes the summary with Claude or a local model, chosen per meeting.
+        </p>
+      </header>
+
+      <div class="wrap case-hero">
+        <!-- Shares its view-transition-name with the card on the home page, so one grows into the other. -->
+        <!-- Made-up sample meeting in Jot's own dark theme: no real notes. -->
+        <div class="shot shot-type jot" style="view-transition-name: shot-jot" aria-hidden="true">
+          <p class="jot-head"><span>Design review</span><span>Sample note</span></p>
+          <p class="jot-modes"><span>Claude</span><span class="on">Local</span><span>Private</span></p>
+          <p class="jot-label">Summary</p>
+          <ul class="jot-summary">
+            <li>Ship the tray reminder in the next build.</li>
+            <li>Onboarding copy is due Thursday.</li>
+          </ul>
+          <p class="jot-label">Transcript</p>
+          <ul class="jot-transcript">
+            <li class="jot-me"><b>Me</b>Can we ship the tray reminder this week?</li>
+            <li><b>Others</b>Yes, if the copy is ready by Thursday.</li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="tier" aria-labelledby="order-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">01 · The order</p>
+            <h2 id="order-title">What it is.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              Jot records a meeting on my Windows laptop, catching both the microphone and the
+              computer's own audio, or on my phone. Whisper turns it into a transcript on the laptop,
+              and then it writes a summary. For each meeting I choose where that summary comes from:
+              Claude, a local model, or Private, where nothing leaves the laptop at all.
+            </p>
+            <p>
+              Around each note it keeps what a meeting leaves behind: action items in a To do list,
+              the people who were there, a follow-up draft, and attached PDFs, Word files and photos
+              of handwritten notes. Research asks Claude to look something up on the web, and I choose
+              whether to add what it found or discard it.
+            </p>
+            <p>
+              Jot only ever asks. When another app starts using the microphone it offers to record,
+              but nothing starts or stops without a button press.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier tier-alt" aria-labelledby="prep-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">02 · Prep</p>
+            <h2 id="prep-title">Three modes, three paths.</h2>
+          </div>
+          <div class="about-copy">
+            <ul class="notes">
+              <li><strong>Claude.</strong> The laptop transcribes, then my home server asks Claude for the summary and stores the note. The server is the only place the API key lives.</li>
+              <li><strong>Local.</strong> A model running on the laptop through Ollama writes the summary, and only the finished note goes to the server.</li>
+              <li><strong>Private.</strong> Everything stays in an encrypted vault on the laptop. In this mode Jot only talks to the laptop itself, which is enforced in code and covered by tests.</li>
+            </ul>
+            <p>
+              The phone records and uploads, and the laptop picks its recordings up as jobs,
+              transcribes them and sends the notes back. The phone checks for new notes every 30
+              seconds while it's open, so a meeting's notes are there soon after it ends.
+            </p>
+            <p class="stack">Tauri 2 · Rust · React · TypeScript · Expo (React Native) · Fastify · SQLite · Docker · whisper.cpp · Ollama · Claude API</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier" aria-labelledby="cook-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">03 · The cook</p>
+            <h2 id="cook-title">The hard parts.</h2>
+          </div>
+          <div class="about-copy">
+            <dl class="figures">
+              <div><dt>Decisions logged</dt><dd>130+</dd></div>
+              <div><dt>Transcribing a 207 s clip, GPU vs CPU</dt><dd>15 s / 73 s</dd></div>
+              <div><dt>Audio sealed every</dt><dd>30 s</dd></div>
+            </dl>
+            <ul class="notes">
+              <li>
+                <strong>A vault built on real cryptography.</strong> A random key encrypts every private
+                item with XChaCha20-Poly1305. That key is wrapped twice, once by the master password
+                through Argon2id and once by a recovery key. Search runs in memory after unlock, with no
+                plain-text index on disk.
+              </li>
+              <li>
+                <strong>Recording that survives a crash.</strong> Every 30 seconds the newest audio is
+                sealed with the vault's public key, so recording keeps going safely even if the vault
+                locks, and anything left over is offered for recovery.
+              </li>
+              <li>
+                <strong>Two tracks, never mixed.</strong> The mic and the computer's audio go to Whisper
+                separately, so every line knows whether I said it. Mic lines that are only the other
+                people coming through my speakers are dropped.
+              </li>
+              <li>
+                <strong>Photos the server can't read.</strong> The phone's private camera seals each
+                photo before it leaves the phone and never saves it to the gallery. The server only
+                holds the sealed file until the laptop collects it and reads the handwriting locally.
+              </li>
+              <li>
+                <strong>Every transcript treated as hostile.</strong> Prompts mark meeting content as
+                data, not instructions, and summaries are shown as sanitized Markdown, never as HTML,
+                with remote images blocked.
+              </li>
+              <li>
+                <strong>A buddy that can't leak.</strong> A small floating figure shows Jot is
+                listening. It only ever gets one of four moods, never words, and it's hidden from
+                screen shares.
+              </li>
+              <li>
+                <strong>Tested at every layer.</strong> Hundreds of tests across the Rust core, the
+                server and both apps, with Claude mocked so no test calls the real API.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier tier-alt" aria-labelledby="pass-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">04 · On the pass</p>
+            <h2 id="pass-title">In daily use.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              Jot runs on my own laptop, phone and home server. There's no public build, and the
+              source is private.
+            </p>
+            <div class="links">
+              <a class="btn" href="../../#jot">Back to the pass</a>
+              <a class="btn" href="../multi-apocalypse/">Next: Multi-Apocalypse</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <p>Taylar Abraham · plain HTML and CSS, no framework</p>
+        <p>
+          <a href="https://github.com/taylarabraham-bit" rel="noopener">github.com/taylarabraham-bit</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js" defer></script>
+  </body>
+</html>
