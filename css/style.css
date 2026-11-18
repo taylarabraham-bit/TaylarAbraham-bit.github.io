@@ -908,30 +908,105 @@ ol {
   font-family: var(--mono);
 }
 
-.family {
-  display: grid;
-  gap: 0.5rem;
-}
-.family li {
-  display: flex;
-  justify-content: space-between;
+/* IRL RPG's Mythic Guide, in the app's own forge look: always dark gold and leather */
+.shot-type.guide {
+  --gold: #c99a46;
+  --gold-hi: #f5d789;
+  --ink: #f7e7bf;
+  --dim: #a9926b;
+  --seam: rgb(201 154 70 / 0.3);
+  --forge: 'Palatino Linotype', Palatino, Georgia, serif;
+  align-content: start;
   gap: 1rem;
-  margin-left: 1.25rem;
-  padding: 0.625rem 0.875rem;
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--fire);
-  border-radius: var(--radius);
+  border-color: rgb(201 154 70 / 0.5);
+  background: linear-gradient(180deg, #16100b, #0d0907);
+  color: var(--ink);
+  font-size: 0.8125rem;
 }
-.family li span {
-  color: var(--muted);
+.guide-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
 }
-.family .family-root {
-  margin-left: 0;
-  border-left-color: var(--accent);
+.guide-head span:first-child {
+  font-family: var(--forge);
+  font-size: 0.875rem;
+  color: var(--gold-hi);
 }
-.family .family-old {
-  border-left-color: var(--line);
-  color: var(--muted);
+.guide-msg {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--seam);
+  border-radius: 8px;
+  background: rgb(28 18 13 / 0.95);
+  font-family: var(--body);
+  line-height: 1.5;
+}
+.guide-msg strong {
+  display: block;
+  font-family: var(--forge);
+  color: var(--gold-hi);
+}
+.guide img {
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+}
+.guide-msg img {
+  width: 3rem;
+  height: 3rem;
+  box-shadow: 0 0 14px rgb(255 138 61 / 0.35);
+}
+.guide-roster {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+.guide-roster li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  column-gap: 0.5rem;
+  align-items: center;
+  padding: 0.375rem;
+  border: 1px solid var(--seam);
+  border-radius: 6px;
+  font-family: var(--forge);
+  line-height: 1.15;
+}
+.guide-roster li:first-child {
+  border-color: var(--gold);
+  box-shadow: 0 0 12px rgb(245 215 137 / 0.18);
+}
+.guide-roster img {
+  grid-row: span 2;
+  width: 2rem;
+  height: 2rem;
+}
+.guide-roster span {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--dim);
+}
+@media (max-width: 30rem) {
+  .guide-roster li {
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    column-gap: 0.375rem;
+    padding: 0.25rem 0.375rem;
+  }
+  .guide-roster img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
 
 .project-body {
@@ -1150,7 +1225,7 @@ ol {
 .case-hero .special {
   margin-bottom: 0;
 }
-/* a receipt stays receipt-sized, and a family tree stays readable */
+/* a receipt stays receipt-sized, and the guide panel stays readable */
 .case-hero .shot-type:not(.special *) {
   max-width: 32rem;
 }

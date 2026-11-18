@@ -74,13 +74,22 @@
 
       <div class="wrap case-hero">
         <!-- Shares its view-transition-name with the card on the home page, so one grows into the other. -->
-        <div class="shot shot-type" style="view-transition-name: shot-irl-rpg" aria-hidden="true">
-          <ul class="family">
-            <li class="family-root">IRL RPG <span>the original</span></li>
-            <li>Training Grounds <span>body + mind</span></li>
-            <li>Budget <span>household money</span></li>
-            <li class="family-old">Health Quest <span>folded in</span></li>
-            <li class="family-old">Library <span>folded in</span></li>
+        <div class="shot shot-type guide" style="view-transition-name: shot-irl-rpg" aria-hidden="true">
+          <p class="guide-head"><span>Mythic Guide</span><span>LLM companion · in development</span></p>
+          <div class="guide-msg">
+            <img src="../../assets/img/guide/dragon.webp" width="160" height="200" alt="" />
+            <p><strong>Aster</strong>I'm Aster, your guide. Ask me about today's training, an academy drill, or which quest fits your energy right now.</p>
+          </div>
+          <ul class="guide-roster">
+            <li><img src="../../assets/img/guide/dragon.webp" width="160" height="200" alt="" loading="lazy" />Aster<span>Dragon</span></li>
+            <li><img src="../../assets/img/guide/phoenix.webp" width="160" height="200" alt="" loading="lazy" />Ember<span>Phoenix</span></li>
+            <li><img src="../../assets/img/guide/griffin.webp" width="160" height="200" alt="" loading="lazy" />Rook<span>Griffin</span></li>
+            <li><img src="../../assets/img/guide/kitsune.webp" width="160" height="200" alt="" loading="lazy" />Mira<span>Kitsune</span></li>
+            <li><img src="../../assets/img/guide/owl.webp" width="160" height="200" alt="" loading="lazy" />Sage<span>Owl</span></li>
+            <li><img src="../../assets/img/guide/raven.webp" width="160" height="200" alt="" loading="lazy" />Noct<span>Raven</span></li>
+            <li><img src="../../assets/img/guide/stag.webp" width="160" height="200" alt="" loading="lazy" />Vale<span>Stag</span></li>
+            <li><img src="../../assets/img/guide/unicorn.webp" width="160" height="200" alt="" loading="lazy" />Solara<span>Unicorn</span></li>
+            <li><img src="../../assets/img/guide/wolf.webp" width="160" height="200" alt="" loading="lazy" />Koda<span>Wolf</span></li>
           </ul>
         </div>
       </div>
@@ -154,10 +163,42 @@
         </div>
       </section>
 
-      <section class="tier tier-alt" aria-labelledby="pass-title">
+      <section class="tier tier-alt" aria-labelledby="guide-title">
         <div class="wrap about-grid">
           <div>
-            <p class="eyebrow">04 · On the pass</p>
+            <p class="eyebrow">04 · The guide</p>
+            <h2 id="guide-title">Nine creatures, one guide.</h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              Training Grounds has a Mythic Guide: a companion you pick from nine creatures, name, and
+              ask about today's training, an academy drill, or which quest fits your energy. Each
+              creature has its own voice, and the guide's replies are shaped to match it.
+            </p>
+            <p>
+              An LLM companion is being built into the guide. Today it answers from a local rules
+              engine, so nothing you tell it leaves the app.
+            </p>
+            <ul class="notes">
+              <li><strong>Aster, the dragon:</strong> low, deliberate, old-fire counsel.</li>
+              <li><strong>Ember, the phoenix:</strong> warm, rising, hopeful battle-muse.</li>
+              <li><strong>Rook, the griffin:</strong> clear, noble, tactical watch-captain.</li>
+              <li><strong>Mira, the kitsune:</strong> nimble, playful, clever side-path wisdom.</li>
+              <li><strong>Sage, the owl:</strong> calm, precise, late-night scholar.</li>
+              <li><strong>Noct, the raven:</strong> dry, quiet, streetwise omen-reader.</li>
+              <li><strong>Vale, the stag:</strong> steady, patient, forest elder.</li>
+              <li><strong>Solara, the unicorn:</strong> bright, gentle, reassuring oracle.</li>
+              <li><strong>Koda, the wolf:</strong> grounded, direct, pack-guardian calm.</li>
+            </ul>
+            <p class="stack">Creature art made in Canva</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier" aria-labelledby="pass-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">05 · On the pass</p>
             <h2 id="pass-title">In private beta.</h2>
           </div>
           <div class="about-copy">
