@@ -307,17 +307,23 @@
 
           <article class="project project-flip" id="home-server">
             <!-- Made-up sample values: nothing here comes from the real server. -->
-            <div class="shot shot-type" style="view-transition-name: shot-home-server" aria-hidden="true">
-              <div class="ledger">
-                <p class="ledger-head">JARVIS · sample readout, not live</p>
-                <p class="ledger-row"><span>CPU</span><span>21%</span></p>
-                <p class="ledger-row"><span>Memory</span><span>48%</span></p>
-                <p class="ledger-row"><span>Disk</span><span>63%</span></p>
-                <p class="ledger-row sub"><span>Plex</span><span>up</span></p>
-                <p class="ledger-row sub"><span>Supabase</span><span>up</span></p>
-                <p class="ledger-row sub"><span>Backups</span><span>running</span></p>
-                <p class="ledger-row total"><span>"All systems nominal."</span><span>ask</span></p>
+            <div class="shot shot-type jarvis" style="view-transition-name: shot-home-server" aria-hidden="true">
+              <p class="jarvis-head"><span>J.A.R.V.I.S.</span><span>Sample · not live</span></p>
+              <p class="jarvis-banner">All systems nominal<span>12 / 12 services up</span></p>
+              <div class="jarvis-grid">
+                <p class="jarvis-ring" style="--v: 23"><strong>23%</strong><span>CPU load</span></p>
+                <ul class="jarvis-bars">
+                  <li style="--v: 41"><span>Memory</span><span>41%</span></li>
+                  <li style="--v: 38"><span>Storage</span><span>38%</span></li>
+                  <li style="--v: 9"><span>Swap</span><span>9%</span></li>
+                </ul>
               </div>
+              <ul class="jarvis-services">
+                <li>Plex</li>
+                <li>Supabase</li>
+                <li>Docker</li>
+                <li>Backups</li>
+              </ul>
             </div>
             <div class="project-body">
               <p class="meta"><span>Homelab</span><span>Self-hosted</span><span class="state state-fire">Always on</span></p>
