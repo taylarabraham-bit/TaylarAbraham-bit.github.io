@@ -729,6 +729,7 @@ ol {
 
 /* A stand-in printed on paper reads as a receipt: no frame, extra room for the torn edge */
 .shot-type.paper {
+  background: var(--paper); /* .shot's surface would otherwise win over .paper */
   border: 0;
   border-radius: 0;
   padding-bottom: calc(clamp(1.25rem, 3vw, 2rem) + var(--tooth));
