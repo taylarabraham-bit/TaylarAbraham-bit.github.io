@@ -245,13 +245,22 @@
           </article>
 
           <article class="project project-flip" id="irl-rpg">
-            <div class="shot shot-type" style="view-transition-name: shot-irl-rpg" aria-hidden="true">
-              <ul class="family">
-                <li class="family-root">IRL RPG <span>the original</span></li>
-                <li>Training Grounds <span>body + mind</span></li>
-                <li>Budget <span>household money</span></li>
-                <li class="family-old">Health Quest <span>folded in</span></li>
-                <li class="family-old">Library <span>folded in</span></li>
+            <div class="shot shot-type guide" style="view-transition-name: shot-irl-rpg" aria-hidden="true">
+              <p class="guide-head"><span>Mythic Guide</span><span>LLM companion · in development</span></p>
+              <div class="guide-msg">
+                <img src="assets/img/guide/dragon.webp" width="160" height="200" alt="" />
+                <p><strong>Aster</strong>I'm Aster, your guide. Ask me about today's training, an academy drill, or which quest fits your energy right now.</p>
+              </div>
+              <ul class="guide-roster">
+                <li><img src="assets/img/guide/dragon.webp" width="160" height="200" alt="" loading="lazy" />Aster<span>Dragon</span></li>
+                <li><img src="assets/img/guide/phoenix.webp" width="160" height="200" alt="" loading="lazy" />Ember<span>Phoenix</span></li>
+                <li><img src="assets/img/guide/griffin.webp" width="160" height="200" alt="" loading="lazy" />Rook<span>Griffin</span></li>
+                <li><img src="assets/img/guide/kitsune.webp" width="160" height="200" alt="" loading="lazy" />Mira<span>Kitsune</span></li>
+                <li><img src="assets/img/guide/owl.webp" width="160" height="200" alt="" loading="lazy" />Sage<span>Owl</span></li>
+                <li><img src="assets/img/guide/raven.webp" width="160" height="200" alt="" loading="lazy" />Noct<span>Raven</span></li>
+                <li><img src="assets/img/guide/stag.webp" width="160" height="200" alt="" loading="lazy" />Vale<span>Stag</span></li>
+                <li><img src="assets/img/guide/unicorn.webp" width="160" height="200" alt="" loading="lazy" />Solara<span>Unicorn</span></li>
+                <li><img src="assets/img/guide/wolf.webp" width="160" height="200" alt="" loading="lazy" />Koda<span>Wolf</span></li>
               </ul>
             </div>
             <div class="project-body">
@@ -265,6 +274,7 @@
               <ul class="notes">
                 <li><strong>Training Grounds</strong> covers training, learning paths, health tracking and flashcards. It absorbed two earlier apps, Health Quest and Library.</li>
                 <li><strong>Budget</strong> reads bank notifications on Android to capture spending, imports CSV, and updates itself over the air from a server I host.</li>
+                <li><strong>The Mythic Guide</strong> is a companion you pick from nine creatures, each with its own voice. An LLM companion is being built into it.</li>
                 <li>Every app saves through versioned rows with optimistic concurrency, and round-trips the whole record so one app never strips data another owns.</li>
                 <li>Database access rules are covered by contract tests, and each app has around 75 test files, including a check that money is never created or lost.</li>
               </ul>
